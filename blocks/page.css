@@ -7,31 +7,61 @@
 }
 
 .page__content{
-  /* padding-left: 200px;
-  padding-right: 200px; */
   margin-left: 200px;
   margin-right: 200px;
 
 }
 
 .header{
+  max-width: 880px;
   margin-top: 45px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
-.page__profile{
+/* .page__profile{
   margin-bottom: 51px;
-  border: solid red;
   max-width: 880px;
-  max-height: 120px;
+} */
+
+.profile{
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.profile__picture{
+  height: 120px;
+  width: 120px;
+  border-radius: 80%;
 
 }
 
-.cards{
-  max-width: 880px;
-  max-height: 742px; 
-  border: solid red;
-  margin-bottom: 67px;
+.profile__info{
+  margin-left: 40px;
+  display: grid;
+  grid-template-areas: 
+  "title button"
+  "description description";
+  grid-template-columns: minmax(auto, 373px) auto;
+}
+
+.profile__name{
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+}
+
+.profile__edit-button{
+  background: transparent url("../images/edit.svg") center no-repeat;
+  height: 24px;
+  width: 24px;
+}
+
+.profile__add-button{
+  background: transparent url("../images/add.svg") center no-repeat;
+  height: 50px;
+  width: 150px;
 }
 
 
