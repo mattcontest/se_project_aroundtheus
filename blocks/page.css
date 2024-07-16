@@ -1,6 +1,9 @@
 .page {
   font-family: Inter, Arial, sans-serif;
   background-color: black;
+  color: white;
+
+
 }
 
 .page__content{
@@ -8,6 +11,27 @@
   padding-right: 200px; */
   margin-left: 200px;
   margin-right: 200px;
-  border: solid red;
 
 }
+
+.header{
+  margin-top: 45px;
+  margin-bottom: 40px;
+}
+
+.page__profile{
+  margin-bottom: 51px;
+  border: solid red;
+  max-width: 880px;
+  max-height: 120px;
+
+}
+
+.cards{
+  max-width: 880px;
+  max-height: 742px; 
+  border: solid red;
+  margin-bottom: 67px;
+}
+
+
