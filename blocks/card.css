@@ -1,0 +1,60 @@
+.cards{
+    margin-top: 30px;
+    font-family: Inter;
+    /* font-weight: 900;
+    font-size: 24px; */
+
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 10%;
+}
+
+.card__list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 282px);
+    grid-gap: 20px 17px;
+
+}
+
+
+.card__image{
+    height: 282px;
+    width: 282px;
+    border-radius: 10px;
+}
+
+.card__description{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    color: black;
+    justify-content: center ;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-right: 20px;
+    padding-left: 20px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.class__description-text{
+    margin: 0;
+
+}
+
+.card__button{
+    width: 21px;
+    height: 18px;
+    background: transparent url("../images/heart.svg") center no-repeat;
+    border: none;
+
+}
