@@ -10,6 +10,13 @@
     box-sizing: border-box;
 }
 
+.footer__copyright{
+    padding-top: 67px;
+    font-size: 14px;
+    font-weight: 400;
+    color: #545454;
+}
+
 
 @media  screen and (max-width:320px)  {
     .footer{
@@ -18,10 +25,22 @@
 
     .footer__copyright{
         padding-left: 19px;
-        padding-top: 48px;
-        padding-bottom: 36px;
+        /* padding-top: 48px;
+        padding-bottom: 36px; */
         font-size: 14px;
         margin: 0;
+    }
+
+}
+
+
+
+@media  screen and (max-width:725px)  {
+
+    .footer__copyright{
+        margin-left: 19px;
+        /* margin-top: 48px; */
+        margin-bottom: 36px;
     }
 
 }

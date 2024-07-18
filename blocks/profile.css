@@ -3,7 +3,6 @@
     .profile{
         font-size: small;
         width: 282px;
-        color: green;
         flex-direction: column;
     }
 
@@ -41,6 +40,7 @@
         margin-bottom: 36px;
         font-size: small;
         margin: 0;
+        font-size: 14px;
     }
 
     .profile__subtitle_edit{
@@ -67,7 +67,6 @@
     .profile{
         font-size: small;
         width: 282px;
-        color: green;
         flex-direction: column;
     }
     
@@ -91,7 +90,6 @@
     .profile__add-button{
         margin: 0;
         height: 50px;
-        /* width: 282px; */
         width: 100%;
         margin-left: 19px;
         margin-right: 19px;
@@ -114,16 +112,11 @@
         width: 18px;
         height: 18px;
     }
-
-    
 }
 
 
 @media screen and (max-width: 775px) {
 
-    .profile__name{
-        color: brown;
-    }
 
     .profile__add-button{
         margin: 0;
