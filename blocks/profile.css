@@ -1,0 +1,142 @@
+@media  screen and (max-width:320px)  {
+
+    .profile{
+        font-size: small;
+        width: 282px;
+        color: green;
+        flex-direction: column;
+    }
+
+    .profile__picture{
+        margin-left: 27px;
+    }
+    
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+        margin-left: 19px;
+        margin-right: 19px;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile__name{
+        font-size: 22px;
+        margin-right: 10px;
+    }
+
+    .profile__add-button{
+        margin: 0;
+        height: 50px;
+        width: 100%;
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+
+    .profile__subtitle{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 36px;
+        font-size: small;
+        margin: 0;
+    }
+
+    .profile__subtitle_edit{
+        display: flex;
+        align-items: center;
+    }
+
+    .profile__edit-button{
+        width: 18px;
+        height: 18px;
+    }
+
+    
+}
+
+
+
+@media  screen and (max-width:615px)  {
+
+    .profile__image{
+        margin-left: 27px;
+    }
+
+    .profile{
+        font-size: small;
+        width: 282px;
+        color: green;
+        flex-direction: column;
+    }
+    
+    .profile__info{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 36px;
+        margin-left: 19px;
+        margin-right: 19px;
+        text-align: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .profile__name{
+        font-size: 22px;
+        margin-right: 10px;
+
+    }
+
+    .profile__add-button{
+        margin: 0;
+        height: 50px;
+        /* width: 282px; */
+        width: 100%;
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+
+    .profile__subtitle{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 36px;
+        font-size: small;
+        margin: 0;
+    }
+
+    .profile__subtitle_edit{
+        display: flex;
+        align-items: center;
+    }
+
+    .profile__edit-button{
+        width: 18px;
+        height: 18px;
+    }
+
+    
+}
+
+
+@media screen and (max-width: 775px) {
+
+    .profile__name{
+        color: brown;
+    }
+
+    .profile__add-button{
+        margin: 0;
+        height: 50px;
+        margin-left: 19px;
+        margin-right: 19px;
+    }
+
+    
+}
+
+@media screen and (max-width: 800px) {
+    .profile__image{
+        margin-left: 27px;
+    }
+}

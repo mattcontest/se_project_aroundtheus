@@ -7,9 +7,6 @@
 }
 
 .page__content{
-  /* margin-left: 200px;
-  margin-right: 200px;
-  max-width: 880px; */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -18,7 +15,6 @@
 
 .page__section{
   max-width: 880px;
-  /* width: 100%; */
   position: relative;
   margin: 0 auto;
 }
@@ -28,10 +24,7 @@
   margin-top: 45px;
 }
 
-/* .page__profile{
-  margin-bottom: 51px;
-  max-width: 880px;
-} */
+
 
 .profile{
   display: flex;
@@ -39,7 +32,6 @@
   padding-top: 40px;
   padding-left: 19px;
   padding-right: 19px;
-  /* border: solid red; */
 }
 
 .profile__picture{
@@ -48,8 +40,6 @@
   border-radius: 80%;
   object-fit: cover;
   background-position: center;
-  /* margin-right: 24px; */
-
 }
 
 .profile__info{
@@ -76,7 +66,6 @@
 .profile__subtitle_edit{
   display: flex;
   align-items: center;
-  /* width: 415px; */
 }
 
 .profile__subtitle{
