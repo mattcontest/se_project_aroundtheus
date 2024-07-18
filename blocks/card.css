@@ -9,7 +9,7 @@
 .card{
     display: flex;
     flex-direction: column;
-    border-radius: 10%;
+    border-radius: 10px;
 }
 
 .card__list{
