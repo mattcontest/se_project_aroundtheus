@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-[Link to Around The U.S:] (https://marslite.github.io/se_project_aroundtheus/)
+- [Link to Around The U.S:](https://marslite.github.io/se_project_aroundtheus/)
 
 ### Overview
 
