@@ -4,19 +4,26 @@
     margin: 0 auto;
 }
 
-.footer__content{
-    margin-top: 67px;
-    justify-self: start;
-    box-sizing: border-box;
-}
+
 
 .footer__copyright{
+    margin: 0;
     padding-top: 67px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 400;
     color: #545454;
+    line-height: 21.78px;
 }
 
+@media  screen and (max-width:725px)  {
+
+    .footer__copyright{
+        margin-left: 19px;
+        /* margin-top: 48px; */
+        margin-bottom: 36px;
+    }
+
+}
 
 @media  screen and (max-width:320px)  {
     .footer{
@@ -35,12 +42,3 @@
 
 
 
-@media  screen and (max-width:725px)  {
-
-    .footer__copyright{
-        margin-left: 19px;
-        /* margin-top: 48px; */
-        margin-bottom: 36px;
-    }
-
-}
