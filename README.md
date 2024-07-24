@@ -8,16 +8,22 @@ Link to the video: [Video](https://drive.google.com/file/d/1csLUd-0lcLV9opBDWvql
 - Figma
 - Images
 
-**Intro**
+**About**
 
-This project is made so all the elements are displayed correctly on popular screen sizes. We recommend investing more time in completing this project, since it's more difficult than previous ones.
+Around The US is a web app designed to share and collect pictures of the natural and
+urban landscape of the United States. Users can post, share and like their favorite post.
 
-**Figma**
+**Technologies**
 
-- [Link to the project on Figma](https://www.figma.com/file/ii4xxsJ0ghevUOcssTlHZv/Sprint-3%3A-Around-the-US?node-id=0%3A1)
+- HTML
+- CSS
+- Figma
+- BEM
+- @Media Queries
+- [Link to the project on Figma](https://drive.google.com/file/d/1csLUd-0lcLV9opBDWvqlpyWTMg_nIQa1/view?usp=sharing)
 
 **Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster.
-
-Good luck and have fun!
+![Main Page](images/MAIN%20PAGE.png)
+![Mobile Page](images/MOBILE.png)
+![UI KIT](images/UI%20KIT.png)
