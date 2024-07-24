@@ -1,5 +1,7 @@
 # Project 3: Around The U.S.
 
+[Link to Around The U.S:] (https://marslite.github.io/se_project_aroundtheus/)
+
 ### Overview
 
 Link to the video: [Video](https://drive.google.com/file/d/1csLUd-0lcLV9opBDWvqlpyWTMg_nIQa1/view?usp=sharing)
