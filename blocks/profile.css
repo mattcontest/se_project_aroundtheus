@@ -91,11 +91,11 @@
 
 
     .profile__add-button{
-        margin: 0;
-        height: 50px;
+        /* margin: 0; */
+        /* height: 50px; */
         margin-left: 19px;
-        margin-right: 19px;
-        /* margin-left: 73px; */
+        /* margin-right: 19px; */
+        margin-left: 73px;
     }
 
     
@@ -104,17 +104,17 @@
 
 @media  screen and (max-width:615px)  {
 
-    .profile__image{
+    /* .profile__image{
         margin-left: 27px;
-    }
-
+    } */
+    /* #This is needed for the styling. Cannot be removed */
     .profile{
         font-size: small;
         width: 282px;
         flex-direction: column;
     }
     
-    .profile__info{
+    /* .profile__info{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 36px;
@@ -123,28 +123,28 @@
         text-align: center;
         width: 100%;
         justify-content: center;
-    }
+    } */
 
+    /* #This is needed for the styling. Cannot be removed */
     .profile__name{
         font-size: 22px;
-        /* margin-right: 10px; */
-
     }
 
+    /* #This is needed for the styling. Cannot be removed */
     .profile__add-button{
         margin: 0;
-        height: 50px;
+        /* height: 50px; */
         width: 100%;
-        margin-left: 19px;
-        margin-right: 19px;
+        /* margin-left: 19px;
+        margin-right: 19px; */
     }
+    /* #This is needed for the styling. Cannot be removed */
 
     .profile__subtitle{
         width: 100%;
         text-align: center;
         margin-bottom: 36px;
         font-size: small;
-        /* margin: 0; */
     }
 
     /* .profile__subtitle_edit{
@@ -152,26 +152,37 @@
         align-items: center;
     } */
 
-    .profile__edit-button{
+    /* .profile__edit-button{
         width: 18px;
         height: 18px;
-    }
+    } */
 }
 
 
 @media  screen and (max-width:320px)  {
-
+    /* #This is needed for the styling. Cannot be removed */
     .profile{
         font-size: small;
         width: 282px;
         flex-direction: column;
     }
 
+    /* #This is needed for the styling. Cannot be removed */
+    .profile__container{
+        padding: 0;
+        margin-left: 19px;
+        margin-right: 19px;
+         /* margin-top: 30px; */
+        /* margin-bottom: 36px;  */
+    }
+
+    /* #This is needed for the styling. Cannot be removed */
     .profile__picture{
         margin-left: 27px;
+        margin-bottom: 30px;
     }
     
-    .profile__info{
+    /* .profile__info{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 36px;
@@ -180,41 +191,45 @@
         text-align: center;
         width: 100%;
         justify-content: center;
-    }
+    } */
+/* /*  */
 
-    .profile__name{
+     .profile__name{
         font-size: 22px;
         line-height: 26.63px;
-        /* margin-right: 10px; */
-    }
+    } 
 
     .profile__add-button{
         margin: 0;
+        margin-top: 36px;
         height: 50px;
         width: 100%;
-        margin-left: 19px;
-        margin-right: 19px;
+        /* margin-left: 19px;
+        margin-right: 19px; */
     }
 
+    /* #This is needed for the styling. Cannot be removed */
     .profile__subtitle{
         width: 100%;
-        text-align: center;
+        /* text-align: center; */
         margin-bottom: 36px;
-        font-size: small;
+        /* font-size: small; */
         margin: 0;
-        font-size: 14px;
+        /* #Recently added due to Figma design */
+        margin-top: 14px;
+        font-size: 14px; 
         line-height: 16.94px;
-    }
+    } 
 
-    .profile__subtitle_edit{
+    /* .profile__subtitle_edit{
         display: flex;
         align-items: center;
-    }
+    } */
 
-    .profile__edit-button{
+    /* .profile__edit-button{
         width: 18px;
         height: 18px;
-    }
+    } */
 
     
 }
