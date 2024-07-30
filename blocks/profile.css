@@ -32,8 +32,13 @@
     font-weight: 500;
     grid-area: title;
     margin: 0;
-    white-space: nowrap;
     margin-right: 10px;
+    /* #By adding this rule the full display of the name will be compromised */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* #Adding max-width will break the style, cannot set max-width: 373px */
+    max-width: 373px;
   }
   
     .profile__container_edit_btn{
@@ -184,7 +189,9 @@
 
     /* #This is needed for the styling. Cannot be removed */
     .profile__picture{
+        margin: auto;
         margin-left: 27px;
+        margin-right: 27px;
         margin-bottom: 30px;
     }
     
@@ -209,7 +216,8 @@
         margin: 0;
         margin-top: 36px;
         height: 50px;
-        width: 100%;
+        width: 282px;
+        /* width: 100%; */
         /* margin-left: 19px;
         margin-right: 19px; */
     }
