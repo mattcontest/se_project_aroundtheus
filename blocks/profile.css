@@ -167,6 +167,12 @@
         flex-direction: column;
     }
 
+    .profile__image{
+        /* background: url("../images/logo_320.png"); */
+        max-height: 24px;
+        max-width: 126px;
+      }
+
     /* #This is needed for the styling. Cannot be removed */
     .profile__container{
         padding: 0;
@@ -233,6 +239,9 @@
 
     
 }
+
+
+  
 
 
 

@@ -21,21 +21,27 @@
         margin-left: 19px;
         /* margin-top: 48px; */
         margin-bottom: 36px;
+        margin-left: 36px;
+
     }
 
 }
 
 @media  screen and (max-width:320px)  {
+    /* #This is needed for the styling. Cannot be removed */
     .footer{
         max-width: 282px;
+        padding-bottom: 36px;
     }
-
+    
     .footer__copyright{
+        padding-right: 100px;
         padding-left: 19px;
         /* padding-top: 48px;
         padding-bottom: 36px; */
         font-size: 14px;
         margin: 0;
+
     }
 
 }
