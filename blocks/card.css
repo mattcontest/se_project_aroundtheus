@@ -19,16 +19,6 @@
   border-radius: 10px;
 }
 
-.cards__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  justify-content: center;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-}
-
 .card__image {
   height: 282px;
   width: 282px;
@@ -51,10 +41,6 @@
   border-bottom-left-radius: 10px;
 }
 
-.class__description-text {
-  margin: 0;
-}
-
 .card__button {
   width: 21px;
   height: 18px;
@@ -67,9 +53,11 @@
   opacity: 0.5;
 }
 
-@media screen and (max-width: 615px) {
+/* @media screen and (max-width: 615px) {
+
   .card__list {
     display: grid;
     grid-template-columns: auto;
   }
-}
+
+} */

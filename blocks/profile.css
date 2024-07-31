@@ -2,8 +2,14 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
-  padding-left: 19px;
-  padding-right: 19px;
+  /* #Profile margin spacing was implemented to allow distance  */
+  /* The narrowness has been removed however now there's no distance 
+     between margin-left/marging-right */
+  /* margin-right: 19px; */
+  /* margin-left: 19px; */
+  max-width: 880px;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .profile__container {

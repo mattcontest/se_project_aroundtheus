@@ -2,6 +2,7 @@
   max-width: 880px;
   width: 100%;
   margin: 0 auto;
+  padding-bottom: 60px;
 }
 
 .footer__copyright {
@@ -15,8 +16,6 @@
 
 @media screen and (max-width: 725px) {
   .footer__copyright {
-    margin-left: 19px;
-    /* margin-top: 48px; */
     margin-bottom: 36px;
     margin-left: 36px;
   }
@@ -36,5 +35,6 @@
         padding-bottom: 36px; */
     font-size: 14px;
     margin: 0;
+    line-height: 16.94px;
   }
 }
