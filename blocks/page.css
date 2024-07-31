@@ -4,21 +4,15 @@
   color: white;
 }
 
-
-.page__content{
+.page__content {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-
-.page__section{
+.page__section {
   max-width: 880px;
   position: relative;
   margin: 0 auto;
   box-sizing: border-box;
 }
-
-
-
-

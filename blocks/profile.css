@@ -1,125 +1,114 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-left: 19px;
+  padding-right: 19px;
+}
 
-.profile{
-    display: flex;
-    align-items: center;
-    padding-top: 40px;
-    padding-left: 19px;
-    padding-right: 19px;
-  }
-  
-  .profile__container{
-    margin-left: 30px;
-    display: grid;
-    grid-template-areas: 
+.profile__container {
+  margin-left: 30px;
+  display: grid;
+  grid-template-areas:
     "title button"
     "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
-    max-width: 415px;
-    /* max-height: 77px; */
-  }
-  .profile__picture{
-    height: 120px;
-    width: 120px;
-    border-radius: 80%;
-    object-fit: cover;
-    background-position: center;
-  }
-  
-  
-  .profile__name{
-    font-size: 42px;
-    line-height: 48px;
-    font-weight: 500;
-    grid-area: title;
-    margin: 0;
-    margin-right: 10px;
-    /* #By adding this rule the full display of the name will be compromised */
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    /* #Adding max-width will break the style, cannot set max-width: 373px */
-    max-width: 373px;
-  }
-  
-    .profile__container_edit_btn{
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
-  
-  .profile__subtitle{
-    margin-top: 7px;
-    font-size: 18px;
-    line-height: 22px;
-    font-weight: 400;
-    grid-area: description;
-    margin: 0;
-  }
-  
-  .profile__edit-button{
-    background: transparent url("../images/edit.svg") center no-repeat;
-    height: 24px;
-    width: 24px;
-    grid-area: button;
-    /* border: solid #FFFFFF 1px;*/
-    border: 2px solid rgba(255, 255, 255, 1)
-  }
-
-  .profile__edit-button:hover{
-    /* #There's no opacity data from the Figma file */
-    opacity: 0.5
-  }
-  
-  .profile__add-button{
-    background: transparent url("../images/add.svg") center no-repeat;
-    height: 50px;
-    width: 150px;
-    margin-left: auto;
-    border: 2px solid rgba(255, 255, 255, 1);
-    border-radius: 2px;
-  }
-
-  .profile__add-button:hover{
-    /* #There's no opacity data from the Figma file */
-    opacity: 0.5;
-  }
-  
-
-  @media screen and (max-width: 800px) {
-    .profile__image{
-        margin-left: 27px;
-    }
+  grid-template-columns: minmax(auto, 373px) auto;
+  max-width: 415px;
+  /* max-height: 77px; */
+}
+.profile__picture {
+  height: 120px;
+  width: 120px;
+  border-radius: 80%;
+  object-fit: cover;
+  background-position: center;
 }
 
+.profile__name {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 500;
+  grid-area: title;
+  margin: 0;
+  margin-right: 10px;
+  /* #By adding this rule the full display of the name will be compromised */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 373px;
+}
+
+.profile__container_edit_btn {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.profile__subtitle {
+  margin-top: 7px;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  grid-area: description;
+  margin: 0;
+}
+
+.profile__edit-button {
+  background: transparent url("../images/edit.svg") center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  /* border: solid #FFFFFF 1px;*/
+  border: 2px solid rgba(255, 255, 255, 1);
+}
+
+.profile__edit-button:hover {
+  /* #There's no opacity data from the Figma file */
+  opacity: 0.5;
+}
+
+.profile__add-button {
+  background: transparent url("../images/add.svg") center no-repeat;
+  height: 50px;
+  width: 150px;
+  margin-left: auto;
+  border: 2px solid rgba(255, 255, 255, 1);
+  border-radius: 2px;
+}
+
+.profile__add-button:hover {
+  /* #There's no opacity data from the Figma file */
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 800px) {
+  .profile__image {
+    margin-left: 27px;
+  }
+}
 
 @media screen and (max-width: 775px) {
-
-
-    .profile__add-button{
-        /* margin: 0; */
-        /* height: 50px; */
-        margin-left: 19px;
-        /* margin-right: 19px; */
-        margin-left: 73px;
-    }
-
-    
+  .profile__add-button {
+    /* margin: 0; */
+    /* height: 50px; */
+    margin-left: 19px;
+    /* margin-right: 19px; */
+    margin-left: 73px;
+  }
 }
 
-
-@media  screen and (max-width:615px)  {
-
-    /* .profile__image{
+@media screen and (max-width: 615px) {
+  /* .profile__image{
         margin-left: 27px;
     } */
-    /* #This is needed for the styling. Cannot be removed */
-    .profile{
-        font-size: small;
-        width: 282px;
-        flex-direction: column;
-    }
-    
-    /* .profile__info{
+  /* #This is needed for the styling. Cannot be removed */
+  .profile {
+    font-size: small;
+    width: 282px;
+    flex-direction: column;
+  }
+
+  /* .profile__info{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 36px;
@@ -130,72 +119,71 @@
         justify-content: center;
     } */
 
-    /* #This is needed for the styling. Cannot be removed */
-    .profile__name{
-        font-size: 22px;
-    }
+  /* #This is needed for the styling. Cannot be removed */
+  .profile__name {
+    font-size: 22px;
+  }
 
-    /* #This is needed for the styling. Cannot be removed */
-    .profile__add-button{
-        margin: 0;
-        /* height: 50px; */
-        width: 100%;
-        /* margin-left: 19px;
+  /* #This is needed for the styling. Cannot be removed */
+  .profile__add-button {
+    margin: 0;
+    /* height: 50px; */
+    width: 100%;
+    /* margin-left: 19px;
         margin-right: 19px; */
-    }
-    /* #This is needed for the styling. Cannot be removed */
+  }
+  /* #This is needed for the styling. Cannot be removed */
 
-    .profile__subtitle{
-        width: 100%;
-        text-align: center;
-        margin-bottom: 36px;
-        font-size: small;
-    }
+  .profile__subtitle {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 36px;
+    font-size: small;
+  }
 
-    /* .profile__subtitle_edit{
+  /* .profile__subtitle_edit{
         display: flex;
         align-items: center;
     } */
 
-    /* .profile__edit-button{
+  /* .profile__edit-button{
         width: 18px;
         height: 18px;
     } */
 }
 
+@media screen and (max-width: 320px) {
+  /* #This is needed for the styling. Cannot be removed */
+  .profile {
+    font-size: small;
+    width: 282px;
+    flex-direction: column;
+  }
 
-@media  screen and (max-width:320px)  {
-    /* #This is needed for the styling. Cannot be removed */
-    .profile{
-        font-size: small;
-        width: 282px;
-        flex-direction: column;
-    }
+  .profile__image {
+    /* background: url("../images/logo_320.png"); */
+    max-height: 24px;
+    max-width: 126px;
+  }
 
-    .profile__image{
-        /* background: url("../images/logo_320.png"); */
-        max-height: 24px;
-        max-width: 126px;
-      }
+  /* #This is needed for the styling. Cannot be removed */
+  .profile__container {
+    padding: 0;
+    margin-left: 19px;
+    margin-right: 19px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 36px;  */
+  }
 
-    /* #This is needed for the styling. Cannot be removed */
-    .profile__container{
-        padding: 0;
-        margin-left: 19px;
-        margin-right: 19px;
-         /* margin-top: 30px; */
-        /* margin-bottom: 36px;  */
-    }
+  /* #This is needed for the styling. Cannot be removed */
+  .profile__picture {
+    margin: auto;
+    margin-left: 27px;
+    margin-right: 27px;
+    margin-bottom: 30px;
+  }
 
-    /* #This is needed for the styling. Cannot be removed */
-    .profile__picture{
-        margin: auto;
-        margin-left: 27px;
-        margin-right: 27px;
-        margin-bottom: 30px;
-    }
-    
-    /* .profile__info{
+  /* .profile__info{
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 36px;
@@ -205,55 +193,43 @@
         width: 100%;
         justify-content: center;
     } */
-/* /*  */
+  /* /*  */
 
-     .profile__name{
-        font-size: 22px;
-        line-height: 26.63px;
-    } 
+  .profile__name {
+    font-size: 22px;
+    line-height: 26.63px;
+  }
 
-    .profile__add-button{
-        margin: 0;
-        margin-top: 36px;
-        height: 50px;
-        width: 282px;
-        /* width: 100%; */
-        /* margin-left: 19px;
+  .profile__add-button {
+    margin: 0;
+    margin-top: 36px;
+    height: 50px;
+    width: 282px;
+    /* width: 100%; */
+    /* margin-left: 19px;
         margin-right: 19px; */
-    }
+  }
 
-    /* #This is needed for the styling. Cannot be removed */
-    .profile__subtitle{
-        width: 100%;
-        /* text-align: center; */
-        margin-bottom: 36px;
-        /* font-size: small; */
-        margin: 0;
-        /* #Recently added due to Figma design */
-        margin-top: 14px;
-        font-size: 14px; 
-        line-height: 16.94px;
-    } 
+  /* #This is needed for the styling. Cannot be removed */
+  .profile__subtitle {
+    width: 100%;
+    /* text-align: center; */
+    margin-bottom: 36px;
+    /* font-size: small; */
+    margin: 0;
+    /* #Recently added due to Figma design */
+    margin-top: 14px;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
 
-    /* .profile__subtitle_edit{
+  /* .profile__subtitle_edit{
         display: flex;
         align-items: center;
     } */
 
-    /* .profile__edit-button{
+  /* .profile__edit-button{
         width: 18px;
         height: 18px;
     } */
-
-    
 }
-
-
-  
-
-
-
-
-
-
-
