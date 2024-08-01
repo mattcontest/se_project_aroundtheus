@@ -51,12 +51,17 @@
 }
 
 .profile__subtitle {
-  margin-top: 7px;
+  /* margin-top: 7px; */
   font-size: 18px;
   line-height: 22px;
   font-weight: 400;
   grid-area: description;
   margin: 0;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 415px;
 }
 
 .profile__edit-button {
@@ -65,12 +70,12 @@
   width: 24px;
   grid-area: button;
   /* border: solid #FFFFFF 1px;*/
-  border: 2px solid rgba(255, 255, 255, 1);
+  border: 1px solid rgba(255, 255, 255, 1);
 }
 
 .profile__edit-button:hover {
   /* #There's no opacity data from the Figma file */
-  opacity: 0.5;
+  opacity: 60%;
 }
 
 .profile__add-button {
@@ -161,9 +166,9 @@
 @media screen and (max-width: 320px) {
   /* #This is needed for the styling. Cannot be removed */
   .profile {
-    font-size: small;
+    /* font-size: small; */
     width: 282px;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
 
   .profile__image {
@@ -207,9 +212,9 @@
   }
 
   .profile__add-button {
-    margin: 0;
+    /* margin: 0; */
     margin-top: 36px;
-    height: 50px;
+    /* height: 50px; */
     width: 282px;
     /* width: 100%; */
     /* margin-left: 19px;
@@ -220,13 +225,18 @@
   .profile__subtitle {
     width: 100%;
     /* text-align: center; */
-    margin-bottom: 36px;
+    /* margin-bottom: 36px; */
     /* font-size: small; */
     margin: 0;
     /* #Recently added due to Figma design */
     margin-top: 14px;
     font-size: 14px;
     line-height: 16.94px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 282px;
   }
 
   /* .profile__subtitle_edit{
