@@ -89,13 +89,7 @@
 
 .profile__add-button:hover {
   /* #There's no opacity data from the Figma file */
-  opacity: 0.5;
-}
-
-@media screen and (max-width: 800px) {
-  .profile__image {
-    margin-left: 27px;
-  }
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 775px) {
