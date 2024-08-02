@@ -168,6 +168,7 @@
   .profile {
     /* font-size: small; */
     width: 282px;
+    padding-top: 0;
     /* flex-direction: column; */
   }
 

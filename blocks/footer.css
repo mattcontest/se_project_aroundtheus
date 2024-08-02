@@ -24,11 +24,13 @@
 @media screen and (max-width: 320px) {
   /* #This is needed for the styling. Cannot be removed */
   .footer {
-    max-width: 282px;
+    /* max-width: 282px; */
+    /* margin-left: 19px; */
     padding-bottom: 36px;
   }
 
   .footer__copyright {
+    padding-top: 48px;
     padding-right: 100px;
     padding-left: 19px;
     /* padding-top: 48px;
