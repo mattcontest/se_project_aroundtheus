@@ -1,6 +1,8 @@
 .header {
+  /* border-bottom: 40px; */
   width: 100%;
   /* margin-top: 45px; */
   padding-top: 45px;
   padding-bottom: 42px;
+  border-bottom: solid rgb(84 84 84 / 0.7);
 }
