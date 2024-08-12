@@ -1,0 +1,25 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  background-color: aqua;
+  display: flex;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.modal__container {
+  background-color: white;
+  margin: auto;
+  padding-top: 34px;
+  padding-left: 36px;
+  padding-right: 36px;
+  padding-bottom: 36px;
+}
+
+.modal__heading {
+  color: black;
+}
