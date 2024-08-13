@@ -20,8 +20,24 @@
   padding-right: 36px;
   padding-bottom: 36px;
   border-radius: 10px;
+  position: relative;
 }
 
 .modal__heading {
   color: black;
+}
+
+.modal_close {
+  justify-self: end;
+  background-image: url("../images/close-icon.svg");
+  height: 40px;
+  width: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(45deg);
+  border: none;
+  background-color: none;
+  top: 0;
+  right: 0;
+  position: absolute;
 }
