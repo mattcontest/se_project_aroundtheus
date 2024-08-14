@@ -105,3 +105,37 @@
   border-radius: 2px;
   border: none;
 }
+
+@media screen and (max-width: 320px) {
+  .modal_close {
+    /* bottom: calc(100% + 13px); */
+    margin-left: -40px;
+  }
+  .modal__heading {
+    margin-top: 25px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 75px;
+    height: 22px;
+    width: 238px;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21.78px;
+  }
+  .modal__container {
+    width: 282px;
+    height: 322px;
+  }
+
+  .modal__form {
+    width: 238px;
+    margin-left: 22px;
+    margin-right: 22px;
+    margin-bottom: 45px;
+  }
+
+  .modal__btn {
+    width: 238px;
+    height: 48px;
+  }
+}
