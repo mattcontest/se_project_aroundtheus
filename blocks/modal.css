@@ -59,7 +59,11 @@
 
 .modal_close {
   bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
+  /* left: calc(100% + 5px); */
+  /* #Recently added to make it look like the design  */
+  margin-top: -38px;
+  left: 428px;
+
   justify-self: end;
   background-image: url("../images/close-icon.svg");
   background-color: transparent;
