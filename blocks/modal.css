@@ -114,6 +114,10 @@
   .modal_close {
     /* bottom: calc(100% + 13px); */
     margin-left: -40px;
+    bottom: calc(100% + 15px);
+    left: calc(100% + 7px);
+    height: 15px;
+    width: 15px;
   }
   .modal__heading {
     margin-top: 25px;
