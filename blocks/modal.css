@@ -75,10 +75,22 @@
 
 #title__form {
   margin-bottom: 29.74px;
+  border: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
 }
 
 #description__form {
   margin-bottom: 48px;
+  border: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
 }
 
 .modal__btn {
