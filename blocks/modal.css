@@ -48,6 +48,8 @@
   font-size: 24px;
   font-weight: 900;
   line-height: 29.05px;
+  margin: 0;
+  margin-top: 34px;
   margin-left: 36px;
   margin-right: 64px;
   margin-bottom: 54px;
@@ -82,4 +84,12 @@
 .modal__btn {
   height: 50.15px;
   width: 358px;
+  background-color: rgba(0, 0, 0, 1);
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  text-align: center;
+  border-radius: 2px;
+  border: none;
 }
