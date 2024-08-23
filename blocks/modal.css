@@ -65,7 +65,7 @@
   left: 428px;
 
   justify-self: end;
-  background-image: url("../images/close-icon.svg");
+  background-image: url("../images/close-icon-normal.svg");
   background-color: transparent;
   height: 40px;
   width: 40px;
@@ -75,6 +75,12 @@
   border: none;
   background-color: none;
   position: absolute;
+}
+
+.modal_close:hover {
+  /* background-image: url("../images/close-icon-hovered.svg");
+  background-color: transparent; */
+  opacity: 60%;
 }
 
 #title__form {
