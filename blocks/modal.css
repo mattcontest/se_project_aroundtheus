@@ -14,8 +14,8 @@
   justify-content: center; */
 }
 
-.modal__open {
-  /* display: flex; */
+.modal__close {
+  display: none;
 }
 
 .modal__container {
