@@ -25,6 +25,9 @@ const initialCards = [
   },
 ];
 
+/* ------------------------------------------------------------------------------------------- */
+/*                                   Elements                                                  */
+/* ------------------------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile--edit-button");
 const modalSelect = document.querySelector("#profile-edit-modal");
 const modalCloseButton = document.querySelector(".modal_close");
@@ -34,10 +37,26 @@ const profileNameInput = document.querySelector("#title__form");
 const profileSubtitleInput = document.querySelector("#description__form");
 const modalSaveButton = document.querySelector(".modal_btn");
 const profileEditForm = modalSelect.querySelector(".modal__form");
-// Default values
+
+/* ------------------------------------------------------------------------------------------- */
+/*                                   Default Values                                            */
+/* ------------------------------------------------------------------------------------------- */
+
 modalSelect.classList.add("modal__close");
 profileNameInput.value = profileName.textContent;
 profileSubtitleInput.value = profileSubtitle.textContent;
+
+/* ------------------------------------------------------------------------------------------- */
+/*                                   Functions                                                 */
+/* ------------------------------------------------------------------------------------------- */
+
+function closePopup() {
+  modalSelect.classList.add("modal__close");
+}
+
+/* ------------------------------------------------------------------------------------------- */
+/*                                   Event Listeners                                           */
+/* ------------------------------------------------------------------------------------------- */
 
 modalCloseButton.addEventListener("click", (e) => {
   profileNameInput.value = profileName.textContent;
@@ -57,5 +76,6 @@ profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
+  closePopup();
   console.log("Fire in the hall!");
 });
