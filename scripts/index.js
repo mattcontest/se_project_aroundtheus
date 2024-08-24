@@ -55,5 +55,7 @@ profileName.addEventListener("click", () => {
 
 profileEditForm.addEventListener("submit", (e) => {
   e.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileSubtitle.textContent = profileSubtitleInput.value;
   console.log("Fire in the hall!");
 });
