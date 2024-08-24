@@ -55,14 +55,22 @@ function closePopup() {
 }
 
 /* ------------------------------------------------------------------------------------------- */
+/*                                  Event Handlers                                             */
+/* ------------------------------------------------------------------------------------------- */
+
+function editSubtmitHandler(e) {
+  e.preventDefault();
+  profileName.textContent = profileNameInput.value;
+  profileSubtitle.textContent = profileSubtitleInput.value;
+  closePopup();
+  console.log("Fire in the hall!");
+}
+
+/* ------------------------------------------------------------------------------------------- */
 /*                                   Event Listeners                                           */
 /* ------------------------------------------------------------------------------------------- */
 
-modalCloseButton.addEventListener("click", (e) => {
-  profileNameInput.value = profileName.textContent;
-  profileSubtitleInput.value = profileSubtitle.textContent;
-  modalSelect.classList.add("modal__close");
-});
+modalCloseButton.addEventListener("click", closePopup);
 
 profileEditButton.addEventListener("click", (e) => {
   modalSelect.classList.remove("modal__close");
@@ -72,10 +80,4 @@ profileName.addEventListener("click", () => {
   console.log(profileName.textContent);
 });
 
-profileEditForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  profileName.textContent = profileNameInput.value;
-  profileSubtitle.textContent = profileSubtitleInput.value;
-  closePopup();
-  console.log("Fire in the hall!");
-});
+profileEditForm.addEventListener("submit", editSubtmitHandler);
