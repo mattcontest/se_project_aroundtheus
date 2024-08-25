@@ -66,7 +66,8 @@ function getCardElement(cardData) {
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = cardData.name;
-  cardList.append(cardElement);
+
+  return cardElement;
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -99,5 +100,6 @@ profileEditForm.addEventListener("submit", editSubtmitHandler);
 
 // Initializing all cards through getCardElement
 initialCards.forEach((cardData) => {
-  getCardElement(cardData);
+  const cardElement = getCardElement(cardData);
+  cardList.prepend(cardElement);
 });
