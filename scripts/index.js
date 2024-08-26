@@ -30,7 +30,7 @@ const initialCards = [
 /* ------------------------------------------------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile--edit-button");
 const modalSelect = document.querySelector("#profile-edit-modal");
-const modalCloseButton = document.querySelector(".modal_close");
+const modalCloseButton = document.querySelector(".modal__close");
 const profileName = document.querySelector(".profile__name");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const profileNameInput = document.querySelector("#title__form");
@@ -59,9 +59,10 @@ function closePopup() {
   modalCloseButton.classList.remove("modal__open");
 }
 
-function openPopup() {
-  modalSelect.classList.add("modal__open");
-}
+// function openPopup() {
+//   // modalSelect.classList.add("modal__open");
+//   // modalCloseButton.classList.add("modal__open");
+// }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -79,7 +80,7 @@ function getCardElement(cardData) {
 /*                                  Event Handlers                                             */
 /* ------------------------------------------------------------------------------------------- */
 
-function editSubtmitHandler(e) {
+function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
@@ -102,7 +103,7 @@ profileName.addEventListener("click", () => {
   console.log(profileName.textContent);
 });
 
-profileEditForm.addEventListener("submit", editSubtmitHandler);
+profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 // Initializing all cards through getCardElement
 initialCards.forEach((cardData) => {
