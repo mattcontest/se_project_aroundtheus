@@ -47,8 +47,6 @@ const cardList = document.querySelector(".cards__list");
 /* ------------------------------------------------------------------------------------------- */
 
 // modalSelect.classList.add("modal__close");
-profileNameInput.value = profileName.textContent;
-profileSubtitleInput.value = profileSubtitle.textContent;
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Functions                                                 */
@@ -59,10 +57,12 @@ function closePopup() {
   modalCloseButton.classList.remove("modal__open");
 }
 
-// function openPopup() {
-//   // modalSelect.classList.add("modal__open");
-//   // modalCloseButton.classList.add("modal__open");
-// }
+function openPopup() {
+  profileNameInput.value = profileName.textContent;
+  profileSubtitleInput.value = profileSubtitle.textContent;
+  modalSelect.classList.add("modal__open");
+  modalCloseButton.classList.add("modal__open");
+}
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
