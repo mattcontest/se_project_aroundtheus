@@ -6,14 +6,17 @@
   right: 0;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
   padding: 0 19px;
   display: flex;
+  visibility: hidden;
   /* opacity: 50%; */
   /* align-items: center;
   justify-content: center; */
 }
 
+.modal__open {
+  visibility: visible;
+}
 .modal__close {
   display: none;
 }
