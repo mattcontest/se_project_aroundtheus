@@ -160,5 +160,6 @@
   .modal__btn {
     width: 238px;
     height: 48px;
+    font-size: 14px;
   }
 }
