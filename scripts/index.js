@@ -96,7 +96,6 @@ function handleProfileFormSubmit(e) {
 modalCloseButton.addEventListener("click", closePopup);
 
 profileEditButton.addEventListener("click", (e) => {
-  modalSelect.classList.add("modal__open");
   openPopup();
 });
 
