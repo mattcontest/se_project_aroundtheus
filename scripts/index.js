@@ -40,8 +40,8 @@ const profileSubtitleInput = document.querySelector("#description__form");
 // const modalSaveButton = document.querySelector(".modal_btn");
 // Add Modal Elements
 const addModal = document.querySelector("#add-modal");
-const addButon = addModal.querySelector(".profile__add-button");
-const addCloseButton = document.querySelector(".add__modal_close");
+const addButton = document.querySelector(".profile__add-button");
+const addCloseButton = addModal.querySelector(".modal__close");
 
 const profileEditForm = document.forms["profile-form"];
 const cardTemplate =
@@ -124,6 +124,6 @@ initialCards.forEach((cardData) => {
   cardList.prepend(cardElement);
 });
 
-addButon.addEventListener("click", openPopup);
+addButton.addEventListener("click", () => openPopup(addModal));
 
-addCloseButton.addEventListener("click", closePopup);
+addCloseButton.addEventListener("click", () => closePopup(addModal));
