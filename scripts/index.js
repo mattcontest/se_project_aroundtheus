@@ -37,7 +37,7 @@ const editProfileModal = document.querySelector("#edit-modal");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const profileNameInput = document.querySelector("#title__form");
 const profileSubtitleInput = document.querySelector("#description__form");
-// const modalSaveButton = document.querySelector(".modal_btn");
+const profileEditSaveButton = editProfileModal.querySelector(".modal__btn");
 // Add Modal Elements
 const addModal = document.querySelector("#add-modal");
 const addButton = document.querySelector(".profile__add-button");
@@ -63,24 +63,9 @@ function closePopup(modal) {
   modal.classList.remove("modal__open");
 }
 
-// function openEditPopup() {
-//   profileNameInput.value = profileName.textContent;
-//   profileSubtitleInput.value = profileSubtitle.textContent;
-//   console.log("are you logging?");
-//   editProfileModal.classList.add("modal__open");
-// }
-
 function openPopup(modal) {
   modal.classList.add("modal__open");
 }
-
-// function openAddPopup() {
-//   addModal.classList.add("modal__open");
-// }
-
-// function closeAddPopup() {
-//   addModal.classList.remove("modal__open");
-// }
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
@@ -102,7 +87,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closeEditPopup();
+  closePopup();
   console.log("Fire in the hall!");
 }
 
@@ -114,7 +99,15 @@ profileModalCloseButton.addEventListener("click", () =>
   closePopup(editProfileModal)
 );
 
-profileEditButton.addEventListener("click", () => openPopup(editProfileModal));
+profileEditButton.addEventListener("click", () => {
+  profileNameInput.value = profileName.textContent;
+  profileSubtitleInput.value = profileSubtitle.textContent;
+  openPopup(editProfileModal);
+});
+
+profileEditSaveButton.addEventListener("click", () => {
+  closePopup(editProfileModal);
+});
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
