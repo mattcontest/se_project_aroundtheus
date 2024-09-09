@@ -49,6 +49,10 @@ const cardTemplate =
 
 const cardList = document.querySelector(".cards__list");
 
+//Hearth Button Elements
+// const likeButtons = document.querySelectorAll(".card__button");
+// console.log(likeButtons);
+//
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Default Values                                            */
 /* ------------------------------------------------------------------------------------------- */
@@ -120,3 +124,12 @@ initialCards.forEach((cardData) => {
 addButton.addEventListener("click", () => openPopup(addModal));
 
 addCloseButton.addEventListener("click", () => closePopup(addModal));
+
+//Selecting all Like Buttons after they are prepended
+const likeButtons = document.querySelectorAll(".card__button");
+
+likeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    button.classList.toggle("card__buton_active");
+  });
+});
