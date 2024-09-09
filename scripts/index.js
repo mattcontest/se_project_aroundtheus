@@ -54,19 +54,18 @@ const cardTemplate =
 
 const cardList = document.querySelector(".cards__list");
 
-//Hearth Button Elements
-// const likeButtons = document.querySelectorAll(".card__button");
-// console.log(likeButtons);
-//
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Default Values                                            */
 /* ------------------------------------------------------------------------------------------- */
 
-// modalSelect.classList.add("modal__close");
-
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Functions                                                 */
 /* ------------------------------------------------------------------------------------------- */
+
+function renderCard(cardData) {
+  const cardElement = getCardElement(cardData);
+  cardList.prepend(cardElement);
+}
 
 function closePopup(modal) {
   modal.classList.remove("modal__open");
@@ -111,12 +110,9 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const titleCard = cardTitleForm.value;
   const linkCard = cardImageForm.value;
-  const cardElement = getCardElement({ name: titleCard, link: linkCard });
-  console.log(cardElement);
-  cardList.prepend(cardElement);
-
+  const cardElement = { name: titleCard, link: linkCard };
+  renderCard(cardElement);
   closePopup(addModal);
-  // getCardElement(...)
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -141,8 +137,7 @@ profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 // Initializing all cards through getCardElement
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardList.prepend(cardElement);
+  renderCard(cardData);
 });
 
 addButton.addEventListener("click", () => openPopup(addModal));
