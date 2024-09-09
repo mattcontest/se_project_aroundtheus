@@ -86,14 +86,14 @@
             type="text"
             name="title"
             id="title__form"
-            class="modal__input_type_title"
+            class="modal__input modal__input_type_title"
             placeholder="Title"
           />
           <input
             type="text"
             name="description"
             id="description__form"
-            class="modal__input_type_image"
+            class="modal__input modal__input_type_image"
             placeholder="Image URL"
           />
           <button class="modal__btn">Save</button>
@@ -104,6 +104,7 @@
     <template id="card__template">
       <li class="card">
         <img src="./images/yosemite-valley.jpg" alt="" class="card__image" />
+        <button class="card__button_delete" type="button"></button>
         <div class="card__description">
           <h2 class="card__title">Yosemite Valley</h2>
           <button class="card__button" type="button"></button>

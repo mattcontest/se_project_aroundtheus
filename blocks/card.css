@@ -17,6 +17,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+  position: relative;
 }
 
 .card__image {
@@ -54,6 +55,21 @@
 }
 
 .card__button:hover {
+  opacity: 0.5;
+}
+
+.card__button_delete {
+  width: 18px;
+  height: 19.3px;
+  background: transparent url("../images/Trash_active.svg");
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.card__button_delete:hover {
   opacity: 0.5;
 }
 
