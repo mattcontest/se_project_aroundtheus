@@ -49,6 +49,15 @@
   width: 358px;
 }
 
+.modal__form_card {
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  margin-right: 64px;
+  margin-bottom: 54px;
+  width: 358px;
+}
+
 .modal__heading {
   width: 330px;
   height: 23px;

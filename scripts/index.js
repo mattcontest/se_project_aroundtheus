@@ -43,6 +43,11 @@ const addModal = document.querySelector("#add-modal");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addModal.querySelector(".modal__close");
 
+//Form Data
+const addCardForm = document.querySelector(".modal__form_card");
+const cardTitleForm = addModal.querySelector(".modal__input_type_title");
+const cardImageForm = addModal.querySelector(".modal__input_type_image");
+
 const profileEditForm = document.forms["profile-form"];
 const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
@@ -76,18 +81,12 @@ function getCardElement(cardData) {
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   //Selecting all Like Buttons after they are prepended
-  // const likeButtons = document.querySelectorAll(".card__button");
+
   const likeButton = cardElement.querySelector(".card__button");
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__button_active");
   });
-
-  // likeButtons.forEach((button) => {
-  //   button.addEventListener("click", () => {
-  //     button.classList.toggle("card__buton_active");
-  //   });
-  // });
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -106,6 +105,18 @@ function handleProfileFormSubmit(e) {
   profileSubtitle.textContent = profileSubtitleInput.value;
   closePopup();
   console.log("Fire in the hall!");
+}
+
+function handleAddCardFormSubmit(e) {
+  e.preventDefault();
+  const titleCard = cardTitleForm.value;
+  const linkCard = cardImageForm.value;
+  const cardElement = getCardElement({ name: titleCard, link: linkCard });
+  console.log(cardElement);
+  cardList.prepend(cardElement);
+
+  closePopup(addModal);
+  // getCardElement(...)
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -137,3 +148,5 @@ initialCards.forEach((cardData) => {
 addButton.addEventListener("click", () => openPopup(addModal));
 
 addCloseButton.addEventListener("click", () => closePopup(addModal));
+
+addCardForm.addEventListener("submit", handleAddCardFormSubmit);
