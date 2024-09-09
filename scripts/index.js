@@ -75,6 +75,19 @@ function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
+  //Selecting all Like Buttons after they are prepended
+  // const likeButtons = document.querySelectorAll(".card__button");
+  const likeButton = cardElement.querySelector(".card__button");
+
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__button_active");
+  });
+
+  // likeButtons.forEach((button) => {
+  //   button.addEventListener("click", () => {
+  //     button.classList.toggle("card__buton_active");
+  //   });
+  // });
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
@@ -124,12 +137,3 @@ initialCards.forEach((cardData) => {
 addButton.addEventListener("click", () => openPopup(addModal));
 
 addCloseButton.addEventListener("click", () => closePopup(addModal));
-
-//Selecting all Like Buttons after they are prepended
-const likeButtons = document.querySelectorAll(".card__button");
-
-likeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.toggle("card__buton_active");
-  });
-});
