@@ -43,7 +43,7 @@ const profileEditSaveButton = editProfileModal.querySelector(".modal__btn");
 const picturePreviewModal = document.querySelector("#picture-modal");
 const previewCardImage = document.querySelector(".modal__image");
 const previewCardTitle = document.querySelector(".modal__image-title");
-const previewCloseButton = document.querySelector(".modal__close-pic_modal");
+const previewCloseButton = document.querySelector(".modal__close_preview");
 
 // Add Modal Elements
 const addModal = document.querySelector("#add-modal");
@@ -85,12 +85,22 @@ function openPopup(modal) {
 
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
+  //Select image for the preview
   const cardImage = cardElement.querySelector(".card__image");
   const cardTitle = cardElement.querySelector(".card__title");
   //Selecting all Like Buttons after they are prepended
   const likeButton = cardElement.querySelector(".card__button");
   //Select delete button
   const deleteButton = cardElement.querySelector(".card__button_delete");
+
+  cardImage.addEventListener("click", () => {
+    previewCardImage.src = cardImage.src;
+    previewCardTitle.textContent = cardData.name;
+    console.log("previewcardimage src", cardImage.src);
+    console.log("previewcardimage src", cardData.name);
+
+    openPopup(picturePreviewModal);
+  });
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__button_active");

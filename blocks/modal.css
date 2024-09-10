@@ -72,12 +72,7 @@
 
 .modal__close {
   bottom: calc(100% + 5px);
-  /* left: calc(100% + 5px); */
-  /* #Recently added to make it look like the design  */
-  margin-top: -38px;
-  left: 428px;
-
-  justify-self: end;
+  left: calc(100% + 5px);
   background-image: url("../images/close-icon-normal.svg");
   background-color: transparent;
   height: 40px;
@@ -91,8 +86,6 @@
 }
 
 .modal__close:hover {
-  /* background-image: url("../images/close-icon-hovered.svg");
-  background-color: transparent; */
   opacity: 60%;
 }
 
@@ -131,8 +124,8 @@
 
 .modal__image-container {
   position: relative;
-  max-width: 540px;
-  max-height: 816px;
+  max-width: 75vh;
+  max-height: 75vh;
   margin: auto;
 }
 
@@ -140,11 +133,6 @@
   max-height: 540px;
   display: block;
   object-fit: contain;
-  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg);
-}
-
-.modal__close-pic_modal {
-  margin-left: 108px;
 }
 
 @media screen and (max-width: 320px) {
