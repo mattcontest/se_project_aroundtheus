@@ -29,10 +29,6 @@
 .modal__container {
   background-color: #fff;
   margin: auto;
-  /* padding-top: 34px;
-  padding-left: 36px;
-  padding-right: 36px;
-  padding-bottom: 36px; */
   padding: 0;
   border-radius: 10px;
   position: relative;
@@ -131,6 +127,24 @@
   text-align: center;
   border-radius: 2px;
   border: none;
+}
+
+.modal__image-container {
+  position: relative;
+  max-width: 540px;
+  max-height: 816px;
+  margin: auto;
+}
+
+.modal__image {
+  max-height: 540px;
+  display: block;
+  object-fit: contain;
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg);
+}
+
+.modal__close-pic_modal {
+  margin-left: 108px;
 }
 
 @media screen and (max-width: 320px) {
