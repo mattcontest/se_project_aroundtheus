@@ -81,3 +81,9 @@
   }
 
 } */
+@media screen and (max-width: 320px) {
+  .modal__form_card {
+    margin-left: 22px !important;
+    margin-right: 22px !important;
+  }
+}
