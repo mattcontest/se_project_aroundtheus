@@ -82,9 +82,14 @@ function getCardElement(cardData) {
   //Selecting all Like Buttons after they are prepended
   const likeButton = cardElement.querySelector(".card__button");
   //Select delete button
+  const deleteButton = cardElement.querySelector(".card__button_delete");
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__button_active");
+  });
+
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
   });
 
   cardTitle.textContent = cardData.name;
