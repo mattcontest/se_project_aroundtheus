@@ -9,13 +9,13 @@
   padding: 0 19px;
   display: flex;
   visibility: hidden;
-  /* opacity: 50%; */
-  /* align-items: center;
-  justify-content: center; */
+  opacity: 0;
+  transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 
 .modal__open {
   visibility: visible;
+  opacity: 1;
 }
 
 .modal__button_close {
