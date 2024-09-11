@@ -127,6 +127,7 @@ function handleProfileFormSubmit(e) {
   profileName.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
   closePopup();
+  e.target.reset();
   console.log("Fire in the hall!");
 }
 
@@ -137,6 +138,7 @@ function handleAddCardFormSubmit(e) {
   const cardElement = { name: titleCard, link: linkCard };
   renderCard(cardElement);
   closePopup(addModal);
+  e.target.reset();
 }
 
 /* ------------------------------------------------------------------------------------------- */
