@@ -75,12 +75,12 @@ function renderCard(cardData) {
 }
 
 function closePopup(modal) {
-  modal.classList.remove("modal__open");
+  modal.classList.remove("modal_open");
   console.log("testing");
 }
 
 function openPopup(modal) {
-  modal.classList.add("modal__open");
+  modal.classList.add("modal_open");
 }
 
 function getCardElement(cardData) {
