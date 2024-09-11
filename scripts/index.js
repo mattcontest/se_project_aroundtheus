@@ -96,6 +96,7 @@ function getCardElement(cardData) {
   cardImage.addEventListener("click", () => {
     previewCardImage.src = cardImage.src;
     previewCardTitle.textContent = cardData.name;
+    previewCardImage.alt = cardData.name;
     console.log("previewcardimage src", cardImage.src);
     console.log("previewcardimage src", cardData.name);
 
