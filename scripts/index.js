@@ -36,7 +36,7 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 const editProfileModal = document.querySelector("#edit-modal");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const profileNameInput = document.querySelector("#title__form");
-const profileSubtitleInput = document.querySelector("#description__form");
+const profileSubtitleInput = document.querySelector("#description__form-edit");
 const profileEditSaveButton = editProfileModal.querySelector(".modal__btn");
 
 // Image Preview Modal

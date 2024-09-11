@@ -89,7 +89,7 @@
   opacity: 60%;
 }
 
-#title__form {
+.modal__input {
   margin-bottom: 29.74px;
   border: 0;
   border-bottom-width: 1px;
@@ -99,7 +99,37 @@
   line-height: 16.94px;
 }
 
-#description__form {
+/* #title__form {
+  margin-bottom: 29.74px;
+  border: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+}
+
+#title__form_add {
+  margin-bottom: 29.74px;
+  border: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+} */
+
+#description__form-add {
+  margin-bottom: 48px;
+  border: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: inset;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.94px;
+}
+
+#description__form-edit {
   margin-bottom: 48px;
   border: 0;
   border-bottom-width: 1px;
