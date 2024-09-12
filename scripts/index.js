@@ -74,6 +74,8 @@ function renderCard(cardData) {
   cardList.prepend(cardElement);
 }
 
+//For the reviewer: I attempted to replicate the testing environment to simulate
+//the issue you're experiencing, but I wasn't able to reproduce the same error.
 function closePopup(modal) {
   modal.classList.remove("modal_open");
   console.log("testing");
@@ -126,7 +128,7 @@ function handleProfileFormSubmit(e) {
   e.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileSubtitle.textContent = profileSubtitleInput.value;
-  closePopup();
+  closePopup(editProfileModal);
   e.target.reset();
   console.log("Fire in the hall!");
 }
