@@ -177,10 +177,15 @@
     /* margin-left: -40px; */
     bottom: calc(96% + 15px);
     background-image: url("../images/close-icon-320.svg");
-    left: calc(92% + 7px);
+    left: calc(97% + 7px);
     height: 15px;
     width: 15px;
     /* top: 41px; */
+  }
+
+  .modal__close-edit {
+    bottom: calc(98% + 15px);
+    left: calc(90% + 7px);
   }
   .modal__heading {
     margin-top: 25px;
