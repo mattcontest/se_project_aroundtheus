@@ -28,6 +28,7 @@ const initialCards = [
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Elements                                                  */
 /* ------------------------------------------------------------------------------------------- */
+
 //Profile Elements
 const profileName = document.querySelector(".profile__name");
 const profileEditButton = document.querySelector("#profile--edit-button");
