@@ -22,6 +22,9 @@
   display: none;
 }
 
+.modal__button_error {
+}
+
 .modal__button_open {
   visibility: visible;
 }

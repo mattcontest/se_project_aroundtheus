@@ -1,14 +1,26 @@
-function setEventListeners() {}
+function setEventListeners(formElement, options) {
+  //Syntatic Sugar
+  const { inputSelector } = options;
+  //Equivalent just for reference
+  // const inputSelector = options.inputSelector;
+  const inputElements = [...formElement.querySelectorAll(inputSelector)];
+  // console.log("hello", inputElements);
+  inputElements.forEach((inputEl) => {
+    inputEl.addEventListener("input", (inputEl) => {
+      console.log(inputEl);
+    });
+  });
+}
 
 function enableValidation(options) {
   const formElements = [...document.querySelectorAll(options.formSelector)];
   formElements.forEach((formEl) => {
-    console.log(formEl);
+    // console.log(formEl);
     formEl.addEventListener("submit", (e) => {
       e.preventDefault();
     });
 
-    setEventListeners(formElements, options);
+    setEventListeners(formEl, options);
 
     // Look for all inputs inside of form
     // Loop through all the inputs to see if all are valid
@@ -23,11 +35,13 @@ function enableValidation(options) {
   });
 }
 
-enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible",
-});
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input, .modal__form_card",
+  submitButtonSelector: ".modal__btn",
+  inactiveButtonClass: ".modal__button_close",
+  inputErrorClass: ".modal__input_type_error",
+  errorClass: ".modal__error_visible",
+};
+
+enableValidation(config);
