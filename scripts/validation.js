@@ -6,8 +6,10 @@ function setEventListeners(formElement, options) {
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   // console.log("hello", inputElements);
   inputElements.forEach((inputEl) => {
-    inputEl.addEventListener("input", (inputEl) => {
-      console.log(inputEl);
+    inputEl.addEventListener("input", (e) => {
+      if (inputEl.value.length <= 2) {
+        console.log(inputEl.validity.valid);
+      }
     });
   });
 }
