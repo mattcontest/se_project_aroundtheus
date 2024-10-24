@@ -1,3 +1,17 @@
+function ShowInputError(formEl, inputEl, options) {
+  // const errorMessage = formEl.querySelector(`.${inputEl}`);
+  console.log(inputEl.id);
+}
+
+function checkInputValidity(formEl, inputEl, options) {
+  if (!inputEl.validity.valid) {
+    ShowInputError(formEl, inputEl, options);
+    console.log("And then do this!");
+  } else {
+    hideInputError(formEl, inputEl, options);
+  }
+}
+
 function setEventListeners(formElement, options) {
   //Syntatic Sugar
   const { inputSelector } = options;
@@ -7,9 +21,7 @@ function setEventListeners(formElement, options) {
   // console.log("hello", inputElements);
   inputElements.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
-      if (inputEl.value.length <= 2) {
-        console.log(inputEl.validity.valid);
-      }
+      checkInputValidity(formElement, inputEl, options);
     });
   });
 }

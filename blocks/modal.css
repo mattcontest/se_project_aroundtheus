@@ -18,6 +18,18 @@
   opacity: 1;
 }
 
+.modal__error {
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: calc(39%);
+  left: 36px;
+  margin-top: 5px;
+  margin-bottom: 13px;
+  transition: opacity 0.3s;
+}
+
 .modal__button_close {
   display: none;
 }
