@@ -14,6 +14,10 @@ function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 }
 
 function checkInputValidity(formEl, inputEl, options) {
+  if (inputEl.id == "title__form_add") {
+    return;
+  }
+
   if (!inputEl.validity.valid) {
     ShowInputError(formEl, inputEl, options);
     console.log("And then do this!");
@@ -62,6 +66,7 @@ function toggleButtonState(
   //   submitButton.classList.remove(inactiveButtonClass);
   //   // submitButton.disabled = false;
   // }
+
   if (hasInvalidInput(inputElements)) {
     // submitButton.classList.add(inactiveButtonClass);
     // return (submitButton.disabled = true);
