@@ -1,5 +1,6 @@
 function ShowInputError(formEl, inputEl, options) {
-  // const errorMessage = formEl.querySelector(`.${inputEl}`);
+  const errorMessage = formEl.querySelector(`#${inputEl.id}-error`);
+  console.log("Check the computer errorMessage", errorMessage);
   console.log(inputEl.id);
 }
 
@@ -11,6 +12,8 @@ function checkInputValidity(formEl, inputEl, options) {
     hideInputError(formEl, inputEl, options);
   }
 }
+
+function hideInputError(formEl, inputEl, options) {}
 
 function setEventListeners(formElement, options) {
   //Syntatic Sugar
