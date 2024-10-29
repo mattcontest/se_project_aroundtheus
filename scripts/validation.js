@@ -1,6 +1,11 @@
 function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessage = formEl.querySelector(`#${inputEl.id}-error`);
   console.log("Check the computer errorMessage", errorMessage);
+  console.log("That's the id", inputEl.id);
+  console.log(
+    "Check if finds the right errorMessage for the link",
+    errorMessage
+  );
   // const {inputErrorClass} = options;
   inputEl.classList.add(inputErrorClass);
   // console.log(inputEl.id);

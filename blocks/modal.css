@@ -32,6 +32,20 @@
   transition: opacity 0.3s;
 }
 
+#description__form-add-error {
+  /* visibility: hidden;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ff0000;
+  position: absolute;
+  top: calc(39%);
+  left: 36px;
+  margin-top: 5px;
+  margin-bottom: 13px;
+  transition: opacity 0.3s; */
+  top: calc(54%);
+}
+
 #description__form-edit-error {
   top: calc(54%);
 }
