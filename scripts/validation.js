@@ -1,7 +1,11 @@
-function ShowInputError(formEl, inputEl, options) {
+function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessage = formEl.querySelector(`#${inputEl.id}-error`);
   console.log("Check the computer errorMessage", errorMessage);
-  console.log(inputEl.id);
+  // const {inputErrorClass} = options;
+  inputEl.classList.add(inputErrorClass);
+  // console.log(inputEl.id);
+  errorMessage.textContent = inputEl.validationMessage;
+  errorMessage.classList.add(errorClass);
 }
 
 function checkInputValidity(formEl, inputEl, options) {
@@ -13,7 +17,31 @@ function checkInputValidity(formEl, inputEl, options) {
   }
 }
 
-function hideInputError(formEl, inputEl, options) {}
+function hideInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+  const errorMessage = formEl.querySelector(`#${inputEl.id}-error`);
+  console.log("Check the computer errorMessage", errorMessage);
+  inputEl.classList.remove(inputErrorClass);
+  errorMessage.textContent = "";
+  errorMessage.classList.remove(errorClass);
+}
+
+function toggleButtonState(
+  inputElements,
+  submitButton,
+  { inactiveButtonClass }
+) {
+  let foundInvalid = false;
+  inputElements.forEach((input) => {
+    if (!input.validity.valid) {
+      foundInvalid = true;
+    }
+  });
+  if (foundInvalid) {
+    submitButton.classList.add(inactiveButtonClass);
+  } else {
+    submitButton.classList.remove(inactiveButtonClass);
+  }
+}
 
 function setEventListeners(formElement, options) {
   //Syntatic Sugar
@@ -22,9 +50,12 @@ function setEventListeners(formElement, options) {
   // const inputSelector = options.inputSelector;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   // console.log("hello", inputElements);
+  const submitButton = formElement.querySelector(".modal__btn");
+  // console.log("Checking the submitButton", submitButton);
   inputElements.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputEl, options);
+      toggleButtonState(inputElements, submitButton, options);
     });
   });
 }
@@ -56,9 +87,9 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input, .modal__form_card",
   submitButtonSelector: ".modal__btn",
-  inactiveButtonClass: ".modal__button_close",
-  inputErrorClass: ".modal__input_type_error",
-  errorClass: ".modal__error_visible",
+  inactiveButtonClass: "modal__button_close",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
 };
 
 enableValidation(config);
