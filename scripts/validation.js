@@ -6,6 +6,7 @@ function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     "Check if finds the right errorMessage for the link",
     errorMessage
   );
+  // console.log()
   inputEl.classList.add(inputErrorClass);
   errorMessage.textContent = inputEl.validationMessage;
   errorMessage.classList.add(errorClass);
@@ -13,9 +14,9 @@ function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 
 function checkInputValidity(formEl, inputEl, options) {
   //Disabling on purpose the showing of the error message for the Name of the URL
-  if (inputEl.id == "title__form_add") {
-    return;
-  }
+  // if (inputEl.id == "title__form_add") {
+  //   return;
+  // }
 
   if (!inputEl.validity.valid) {
     ShowInputError(formEl, inputEl, options);
