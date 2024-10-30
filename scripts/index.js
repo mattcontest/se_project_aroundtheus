@@ -36,7 +36,7 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 //Modal Elements
 const editModal = document.querySelector("#edit-modal");
 const editModalContainer = editModal.querySelector(".modal__container");
-
+// const modalImageContainer = document.querySelector(".modal__image-container");
 const modalConteiner = document.querySelector(".modal__container");
 const modalForm = document.querySelector(".modal__form");
 const editProfileModal = document.querySelector("#edit-modal");
@@ -47,6 +47,9 @@ const profileEditSaveButton = editProfileModal.querySelector(".modal__btn");
 
 // Image Preview Modal
 const picturePreviewModal = document.querySelector("#picture-modal");
+const modalPictureContainer = picturePreviewModal.querySelector(
+  ".modal__image-container"
+);
 const previewCardImage = document.querySelector(".modal__image");
 const previewCardTitle = document.querySelector(".modal__image-title");
 const previewCloseButton = document.querySelector(".modal__close_preview");
@@ -177,6 +180,13 @@ editModal.addEventListener("click", (event) => {
 addModal.addEventListener("click", (event) => {
   if (!addModalContainer.contains(event.target)) {
     closePopup(addModal);
+  }
+});
+
+//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
+picturePreviewModal.addEventListener("click", (event) => {
+  if (!modalPictureContainer.contains(event.target)) {
+    closePopup(picturePreviewModal);
   }
 });
 
