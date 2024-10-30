@@ -30,6 +30,10 @@
   margin-top: 5px;
   margin-bottom: 13px;
   transition: opacity 0.3s;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Inter", Arial, sans-serif;
+  line-height: 14.52px;
 }
 
 #description__form_add-error {
@@ -56,18 +60,6 @@
 .modal__error_visible {
   visibility: visible;
   /* opacity: 1; */
-}
-
-.modal__button_close {
-  display: none;
-  visibility: hidden;
-}
-
-.modal__button_error {
-}
-
-.modal__button_open {
-  visibility: visible;
 }
 
 .modal__container {
@@ -183,6 +175,20 @@
   line-height: 16.94px;
 }
 
+.modal__button_close {
+  background-color: #ffffff;
+  border: solid 1px #000000;
+  color: #000000;
+  opacity: 20%;
+}
+
+.modal__button_error {
+}
+
+.modal__button_open {
+  visibility: visible;
+}
+
 .modal__btn {
   height: 50.15px;
   width: 358px;
@@ -194,6 +200,10 @@
   text-align: center;
   border-radius: 2px;
   border: none;
+}
+
+.modal__btn:hover {
+  opacity: 80%;
 }
 
 .modal__image-container {

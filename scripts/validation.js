@@ -6,14 +6,13 @@ function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     "Check if finds the right errorMessage for the link",
     errorMessage
   );
-  // const {inputErrorClass} = options;
   inputEl.classList.add(inputErrorClass);
-  // console.log(inputEl.id);
   errorMessage.textContent = inputEl.validationMessage;
   errorMessage.classList.add(errorClass);
 }
 
 function checkInputValidity(formEl, inputEl, options) {
+  //Disabling on purpose the showing of the error message for the Name of the URL
   if (inputEl.id == "title__form_add") {
     return;
   }
@@ -104,17 +103,6 @@ function enableValidation(options) {
     });
 
     setEventListeners(formEl, options);
-
-    // Look for all inputs inside of form
-    // Loop through all the inputs to see if all are valid
-    // if input is not valid we
-    //grab the  validation message
-    //add error class to input
-    //display error message
-    //disabled button
-    //if all inputs are valid
-    // enable button
-    // reset error message
   });
 }
 
