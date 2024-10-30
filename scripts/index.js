@@ -183,6 +183,29 @@ addModal.addEventListener("click", (event) => {
   }
 });
 
+addModalContainer.addEventListener("keydown", function (evt) {
+  if (evt.key === "Escape") {
+    closePopup(addModal);
+  }
+});
+
+addModal.addEventListener("keydown", function (evt) {
+  // console.log("from here", evt.key);
+  if (evt.key === "Escape") {
+    console.log("Clicking escaping");
+    closePopup(addModal);
+  }
+});
+
+document.addEventListener("keydown", function (evt) {
+  console.log("works?");
+  if (evt.key === "Escape") {
+    closePopup(editModal);
+    closePopup(addModal);
+    // console.log("inside the escape");
+  }
+});
+
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
 picturePreviewModal.addEventListener("click", (event) => {
   if (!modalPictureContainer.contains(event.target)) {
