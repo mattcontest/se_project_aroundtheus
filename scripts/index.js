@@ -34,6 +34,11 @@ const profileName = document.querySelector(".profile__name");
 const profileEditButton = document.querySelector("#profile--edit-button");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 //Modal Elements
+const editModal = document.querySelector("#edit-modal");
+const editModalContainer = editModal.querySelector(".modal__container");
+
+const modalConteiner = document.querySelector(".modal__container");
+const modalForm = document.querySelector(".modal__form");
 const editProfileModal = document.querySelector("#edit-modal");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const profileNameInput = document.querySelector("#title__form");
@@ -48,6 +53,7 @@ const previewCloseButton = document.querySelector(".modal__close_preview");
 
 // Add Modal Elements
 const addModal = document.querySelector("#add-modal");
+const addModalContainer = addModal.querySelector(".modal__container");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addModal.querySelector(".modal__close");
 
@@ -151,6 +157,28 @@ function handleAddCardFormSubmit(e) {
 profileModalCloseButton.addEventListener("click", () =>
   closePopup(editProfileModal)
 );
+
+// editModal.addEventListener("click", () => closePopup(editProfileModal));
+// addModal.addEventListener("click", () => closePopup(addModal));
+
+//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
+editModal.addEventListener("click", (event) => {
+  // if (event.target !== modalConteiner && event.target !== modalForm) {
+  //   console.log("fire test!");
+  //   closePopup(editProfileModal);
+  // }
+  if (!editModalContainer.contains(event.target)) {
+    closePopup(editProfileModal);
+  }
+});
+
+//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
+
+addModal.addEventListener("click", (event) => {
+  if (!addModalContainer.contains(event.target)) {
+    closePopup(addModal);
+  }
+});
 
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
