@@ -59,6 +59,7 @@
 }
 .modal__error_visible {
   visibility: visible;
+  border-bottom-color: red;
   /* opacity: 1; */
 }
 
@@ -133,6 +134,17 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 16.94px;
+}
+
+/* .modal__error_visible {
+  border-bottom-color: red;
+} */
+.modal__input_type_error {
+  border-bottom-color: rgba(255, 0, 0, 1);
+}
+
+#description__form-edit.modal__input_type_error {
+  border-bottom-color: rgba(255, 0, 0, 1);
 }
 
 /* #title__form {
