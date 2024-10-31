@@ -187,7 +187,7 @@
   line-height: 16.94px;
 }
 
-.modal__button_close {
+.modal__btn_close {
   background-color: #ffffff;
   border: solid 1px #000000;
   color: #000000;
@@ -197,7 +197,7 @@
 .modal__button_error {
 }
 
-.modal__button_open {
+.modal__btn_open {
   visibility: visible;
 }
 
