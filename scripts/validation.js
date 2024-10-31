@@ -85,6 +85,7 @@ function setEventListeners(formElement, options) {
   // const inputSelector = options.inputSelector;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   // console.log("hello", inputElements);
+  //By using options it won't work, with formElement instead it works
   const submitButton = formElement.querySelector(".modal__btn");
   // console.log("Checking the submitButton", submitButton);
   inputElements.forEach((inputEl) => {
