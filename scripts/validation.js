@@ -53,40 +53,22 @@ function toggleButtonState(
   submitButton,
   { inactiveButtonClass }
 ) {
-  // let foundInvalid = false;
-  // inputElements.forEach((input) => {
-  //   if (!input.validity.valid) {
-  //     foundInvalid = true;
-  //   }
-  // });
-  // if (foundInvalid) {
-  //   submitButton.classList.add(inactiveButtonClass);
-  //   // submitButton.disabled = true;
-  // } else {
-  //   submitButton.classList.remove(inactiveButtonClass);
-  //   // submitButton.disabled = false;
-  // }
-
   if (hasInvalidInput(inputElements)) {
-    // submitButton.classList.add(inactiveButtonClass);
-    // return (submitButton.disabled = true);
     return disableButton(submitButton, { inactiveButtonClass });
   }
 
-  // submitButton.classList.remove(inactiveButtonClass);
-  // submitButton.disabled = false;
   return enableButton(submitButton, { inactiveButtonClass });
 }
 
 function setEventListeners(formElement, options) {
   //Syntatic Sugar
-  const { inputSelector } = options;
+  const { inputSelector, submitButtonSelector } = options;
   //Equivalent just for reference
   // const inputSelector = options.inputSelector;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
   // console.log("hello", inputElements);
   //By using options it won't work, with formElement instead it works
-  const submitButton = formElement.querySelector(".modal__btn");
+  const submitButton = formElement.querySelector(submitButtonSelector);
   // console.log("Checking the submitButton", submitButton);
   inputElements.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
