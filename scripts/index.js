@@ -180,7 +180,6 @@ addModal.addEventListener("click", (event) => {
   }
 });
 
-//Check this
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
     const openModal = document.querySelector(".modal_open");
@@ -188,18 +187,9 @@ function handleEscapeKey(evt) {
   }
 }
 
-//Check this
-
-//Here we check if all/one of the modals are not open and if not then we remove to all escape key listener
 function checkAndRemoveEscListener() {
-  if (
-    !editModal.classList.contains(".modal__open") ||
-    !addModal.classList.contains(".modal__open") ||
-    !picturePreviewModal.classList.contains(".modal__open")
-  ) {
-    document.removeEventListener("keydown", handleEscapeKey);
-    console.log("Removed Event Listener for key-escape");
-  }
+  document.removeEventListener("keydown", handleEscapeKey);
+  console.log("Removed Event Listener for key-escape");
 }
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
