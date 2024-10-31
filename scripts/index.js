@@ -59,7 +59,6 @@ const addModal = document.querySelector("#add-modal");
 const addModalContainer = addModal.querySelector(".modal__container");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addModal.querySelector(".modal__close");
-const openModals = document.querySelector(".modal__open");
 
 //Form Data
 const addCardForm = document.querySelector(".modal__form_card");
@@ -184,9 +183,9 @@ addModal.addEventListener("click", (event) => {
 //Check this
 function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
-    closePopup(editModal);
-    closePopup(addModal);
-    closePopup(picturePreviewModal);
+    const openModal = document.querySelector(".modal_open");
+    closePopup(openModal);
+
     checkAndRemoveEscListener();
   }
 }
