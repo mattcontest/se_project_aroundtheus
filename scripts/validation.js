@@ -109,7 +109,7 @@ function enableValidation(options) {
 
 const config = {
   formSelector: ".modal__form",
-  inputSelector: ".modal__input, .modal__form_card",
+  inputSelector: ".modal__input",
   submitButtonSelector: ".modal__btn",
   inactiveButtonClass: "modal__button_close",
   inputErrorClass: "modal__input_type_error",
