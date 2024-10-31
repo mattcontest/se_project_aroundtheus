@@ -185,8 +185,6 @@ function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
     const openModal = document.querySelector(".modal_open");
     closePopup(openModal);
-
-    checkAndRemoveEscListener();
   }
 }
 
