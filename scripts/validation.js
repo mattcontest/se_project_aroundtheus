@@ -1,4 +1,4 @@
-function ShowInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
+function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
   const errorMessage = formEl.querySelector(`#${inputEl.id}-error`);
   console.log("Check the computer errorMessage", errorMessage);
   console.log("That's the id", inputEl.id);
@@ -19,7 +19,7 @@ function checkInputValidity(formEl, inputEl, options) {
   // }
 
   if (!inputEl.validity.valid) {
-    ShowInputError(formEl, inputEl, options);
+    showInputError(formEl, inputEl, options);
     console.log("And then do this!");
   } else {
     hideInputError(formEl, inputEl, options);
