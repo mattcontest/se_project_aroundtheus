@@ -97,7 +97,7 @@ function closePopup(modal) {
 function openPopup(modal) {
   modal.classList.add("modal_open");
   //Check this
-  document.addEventListener("keydown", handlerEscapeKey);
+  document.addEventListener("keydown", handleEscapeKey);
 }
 
 function getCardElement(cardData) {
@@ -166,15 +166,8 @@ profileModalCloseButton.addEventListener("click", () =>
   closePopup(editProfileModal)
 );
 
-// editModal.addEventListener("click", () => closePopup(editProfileModal));
-// addModal.addEventListener("click", () => closePopup(addModal));
-
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
 editModal.addEventListener("click", (event) => {
-  // if (event.target !== modalConteiner && event.target !== modalForm) {
-  //   console.log("fire test!");
-  //   closePopup(editProfileModal);
-  // }
   if (!editModalContainer.contains(event.target)) {
     closePopup(editProfileModal);
   }
@@ -188,22 +181,8 @@ addModal.addEventListener("click", (event) => {
   }
 });
 
-// addModalContainer.addEventListener("keydown", function (evt) {
-//   if (evt.key === "Escape") {
-//     closePopup(addModal);
-//   }
-// });
-
-// addModal.addEventListener("keydown", function (evt) {
-//   // console.log("from here", evt.key);
-//   if (evt.key === "Escape") {
-//     console.log("Clicking escaping");
-//     closePopup(addModal);
-//   }
-// });
-
 //Check this
-function handlerEscapeKey(evt) {
+function handleEscapeKey(evt) {
   if (evt.key === "Escape") {
     closePopup(editModal);
     closePopup(addModal);
@@ -221,21 +200,10 @@ function checkAndRemoveEscListener() {
     !addModal.classList.contains(".modal__open") ||
     !picturePreviewModal.classList.contains(".modal__open")
   ) {
-    document.removeEventListener("keydown", handlerEscapeKey);
+    document.removeEventListener("keydown", handleEscapeKey);
     console.log("Removed Event Listener for key-escape");
   }
 }
-
-//We create an eventlistener looking for they keydown -- Escape
-// document.addEventListener("keydown", function (evt) {
-//   console.log("works?");
-//   if (evt.key === "Escape") {
-//     closePopup(editModal);
-//     closePopup(addModal);
-//     closePopup(picturePreviewModal);
-//     // console.log("inside the escape");
-//   }
-// });
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
 picturePreviewModal.addEventListener("click", (event) => {
@@ -249,10 +217,6 @@ profileEditButton.addEventListener("click", () => {
   profileSubtitleInput.value = profileSubtitle.textContent;
   openPopup(editProfileModal);
 });
-
-// profileEditSaveButton.addEventListener("click", () => {
-//   closePopup(editProfileModal);
-// });
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
