@@ -59,6 +59,7 @@ const addModal = document.querySelector("#add-modal");
 const addModalContainer = addModal.querySelector(".modal__container");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addModal.querySelector(".modal__close");
+const openModals = document.querySelector(".modal__open");
 
 //Form Data
 const addCardForm = document.querySelector(".modal__form_card");
@@ -88,11 +89,15 @@ function renderCard(cardData) {
 //the issue you're experiencing, but I wasn't able to reproduce the same error.
 function closePopup(modal) {
   modal.classList.remove("modal_open");
+  //Check this
+  checkAndRemoveEscListener();
   console.log("testing");
 }
 
 function openPopup(modal) {
   modal.classList.add("modal_open");
+  //Check this
+  document.addEventListener("keydown", handlerEscapeKey);
 }
 
 function getCardElement(cardData) {
@@ -183,28 +188,54 @@ addModal.addEventListener("click", (event) => {
   }
 });
 
-addModalContainer.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    closePopup(addModal);
-  }
-});
+// addModalContainer.addEventListener("keydown", function (evt) {
+//   if (evt.key === "Escape") {
+//     closePopup(addModal);
+//   }
+// });
 
-addModal.addEventListener("keydown", function (evt) {
-  // console.log("from here", evt.key);
-  if (evt.key === "Escape") {
-    console.log("Clicking escaping");
-    closePopup(addModal);
-  }
-});
+// addModal.addEventListener("keydown", function (evt) {
+//   // console.log("from here", evt.key);
+//   if (evt.key === "Escape") {
+//     console.log("Clicking escaping");
+//     closePopup(addModal);
+//   }
+// });
 
-document.addEventListener("keydown", function (evt) {
-  console.log("works?");
+//Check this
+function handlerEscapeKey(evt) {
   if (evt.key === "Escape") {
     closePopup(editModal);
     closePopup(addModal);
-    // console.log("inside the escape");
+    closePopup(picturePreviewModal);
+    checkAndRemoveEscListener();
   }
-});
+}
+
+//Check this
+
+//Here we check if all/one of the modals are not open and if not then we remove to all escape key listener
+function checkAndRemoveEscListener() {
+  if (
+    !editModal.classList.contains(".modal__open") ||
+    !addModal.classList.contains(".modal__open") ||
+    !picturePreviewModal.classList.contains(".modal__open")
+  ) {
+    document.removeEventListener("keydown", handlerEscapeKey);
+    console.log("Removed Event Listener for key-escape");
+  }
+}
+
+//We create an eventlistener looking for they keydown -- Escape
+// document.addEventListener("keydown", function (evt) {
+//   console.log("works?");
+//   if (evt.key === "Escape") {
+//     closePopup(editModal);
+//     closePopup(addModal);
+//     closePopup(picturePreviewModal);
+//     // console.log("inside the escape");
+//   }
+// });
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
 picturePreviewModal.addEventListener("click", (event) => {
@@ -219,9 +250,9 @@ profileEditButton.addEventListener("click", () => {
   openPopup(editProfileModal);
 });
 
-profileEditSaveButton.addEventListener("click", () => {
-  closePopup(editProfileModal);
-});
+// profileEditSaveButton.addEventListener("click", () => {
+//   closePopup(editProfileModal);
+// });
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
