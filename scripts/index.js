@@ -106,7 +106,6 @@ function getCardElement(cardData) {
     previewCardImage.src = cardImage.src;
     previewCardTitle.textContent = cardData.name;
     previewCardImage.alt = cardData.name;
-
     openPopup(picturePreviewModal);
   });
 
