@@ -89,8 +89,8 @@ function renderCard(cardData) {
 function closePopup(modal) {
   modal.classList.remove("modal_open");
   //Check this
-  checkAndRemoveEscListener();
-  console.log("testing");
+  // checkAndRemoveEscListener();
+  document.removeEventListener("keydown", handleEscapeKey);
 }
 
 function openPopup(modal) {
@@ -183,11 +183,6 @@ function handleEscapeKey(evt) {
     const openModal = document.querySelector(".modal_open");
     closePopup(openModal);
   }
-}
-
-function checkAndRemoveEscListener() {
-  document.removeEventListener("keydown", handleEscapeKey);
-  console.log("Removed Event Listener for key-escape");
 }
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
