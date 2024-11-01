@@ -113,8 +113,6 @@ function getCardElement(cardData) {
     previewCardImage.src = cardImage.src;
     previewCardTitle.textContent = cardData.name;
     previewCardImage.alt = cardData.name;
-    console.log("previewcardimage src", cardImage.src);
-    console.log("previewcardimage src", cardData.name);
 
     openPopup(picturePreviewModal);
   });
