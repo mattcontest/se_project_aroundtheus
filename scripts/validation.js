@@ -70,6 +70,8 @@ function setEventListeners(formElement, options) {
   //By using options it won't work, with formElement instead it works
   const submitButton = formElement.querySelector(submitButtonSelector);
   // console.log("Checking the submitButton", submitButton);
+  toggleButtonState(inputElements, submitButton, options);
+
   inputElements.forEach((inputEl) => {
     inputEl.addEventListener("input", (e) => {
       checkInputValidity(formElement, inputEl, options);
