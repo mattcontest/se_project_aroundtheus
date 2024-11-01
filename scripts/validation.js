@@ -6,18 +6,12 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
     "Check if finds the right errorMessage for the link",
     errorMessage
   );
-  // console.log()
   inputEl.classList.add(inputErrorClass);
   errorMessage.textContent = inputEl.validationMessage;
   errorMessage.classList.add(errorClass);
 }
 
 function checkInputValidity(formEl, inputEl, options) {
-  //Disabling on purpose the showing of the error message for the Name of the URL
-  // if (inputEl.id == "title__form_add") {
-  //   return;
-  // }
-
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, options);
     console.log("And then do this!");
@@ -66,10 +60,8 @@ function setEventListeners(formElement, options) {
   //Equivalent just for reference
   // const inputSelector = options.inputSelector;
   const inputElements = [...formElement.querySelectorAll(inputSelector)];
-  // console.log("hello", inputElements);
-  //By using options it won't work, with formElement instead it works
+
   const submitButton = formElement.querySelector(submitButtonSelector);
-  // console.log("Checking the submitButton", submitButton);
   toggleButtonState(inputElements, submitButton, options);
 
   inputElements.forEach((inputEl) => {
@@ -83,7 +75,6 @@ function setEventListeners(formElement, options) {
 function enableValidation(options) {
   const formElements = [...document.querySelectorAll(options.formSelector)];
   formElements.forEach((formEl) => {
-    // console.log(formEl);
     formEl.addEventListener("submit", (e) => {
       e.preventDefault();
     });
