@@ -36,9 +36,6 @@ const profileSubtitle = document.querySelector(".profile__subtitle");
 //Modal Elements
 const editModal = document.querySelector("#edit-modal");
 const editModalContainer = editModal.querySelector(".modal__container");
-// const modalImageContainer = document.querySelector(".modal__image-container");
-// const modalConteiner = document.querySelector(".modal__container");
-// const modalForm = document.querySelector(".modal__form");
 const editProfileModal = document.querySelector("#edit-modal");
 const profileModalCloseButton = editProfileModal.querySelector(".modal__close");
 const profileNameInput = document.querySelector("#title__form");
@@ -84,12 +81,8 @@ function renderCard(cardData) {
   cardList.prepend(cardElement);
 }
 
-//For the reviewer: I attempted to replicate the testing environment to simulate
-//the issue you're experiencing, but I wasn't able to reproduce the same error.
 function closePopup(modal) {
   modal.classList.remove("modal_open");
-  //Check this
-  // checkAndRemoveEscListener();
   document.removeEventListener("keydown", handleEscapeKey);
 }
 

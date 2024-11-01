@@ -14,7 +14,6 @@ function showInputError(formEl, inputEl, { inputErrorClass, errorClass }) {
 function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, options);
-    console.log("And then do this!");
   } else {
     hideInputError(formEl, inputEl, options);
   }
