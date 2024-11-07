@@ -1,6 +1,8 @@
+import Card from "../components/Card.js";
+
 const initialCards = [
   {
-    name: "Yosemite Valley",
+    name: "Yasmine Valley",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
   },
   {
@@ -24,6 +26,14 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+
+const cardData = {
+  name: "Y",
+  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card__template");
+card.getView();
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Elements                                                  */
@@ -77,8 +87,11 @@ const cardList = document.querySelector(".cards__list");
 /* ------------------------------------------------------------------------------------------- */
 
 function renderCard(cardData) {
-  const cardElement = getCardElement(cardData);
-  cardList.prepend(cardElement);
+  // const cardElement = getCardElement(cardData);
+  const card = new Card(cardData, "#card__template");
+  const cardElement = card.getView();
+
+  cardList.append(cardElement);
 }
 
 function closePopup(modal) {
@@ -100,7 +113,7 @@ function getCardElement(cardData) {
   //Selecting all Like Buttons after they are prepended
   const likeButton = cardElement.querySelector(".card__button");
   //Select delete button
-  const deleteButton = cardElement.querySelector(".card__button_delete");
+  // const deleteButton = cardElement.querySelector(".card__button_delete");
 
   cardImage.addEventListener("click", () => {
     previewCardImage.src = cardImage.src;
@@ -113,9 +126,9 @@ function getCardElement(cardData) {
     likeButton.classList.toggle("card__button_active");
   });
 
-  deleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  // deleteButton.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 
   cardTitle.textContent = cardData.name;
   cardImage.src = cardData.link;
