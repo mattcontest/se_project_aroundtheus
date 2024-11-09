@@ -32,8 +32,8 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card__template");
-card.getView();
+// const card = new Card(cardData, "#card__template");
+// card.getView();
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Elements                                                  */
@@ -86,12 +86,17 @@ const cardList = document.querySelector(".cards__list");
 /*                                   Functions                                                 */
 /* ------------------------------------------------------------------------------------------- */
 
+function createCard(data) {
+  const card = new Card(data, "#card__template", handleImageClick);
+  return card.getView();
+}
+
 function renderCard(cardData) {
   // const cardElement = getCardElement(cardData);
-  const card = new Card(cardData, "#card__template");
-  const cardElement = card.getView();
-
-  cardList.append(cardElement);
+  // const card = new Card(cardData, "#card__template");
+  const cardElement = createCard(cardData);
+  // const cardElement = card.getView();
+  cardList.prepend(cardElement);
 }
 
 function closePopup(modal) {
@@ -105,23 +110,14 @@ function openPopup(modal) {
   document.addEventListener("keydown", handleEscapeKey);
 }
 
+function handleImageClick(data) {
+  previewCardImage.src = data.link;
+  previewCardImage.alt = data.name;
+  previewCardTitle.textContent = data.name;
+  openPopup(picturePreviewModal);
+}
+
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  //Select image for the preview
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  //Selecting all Like Buttons after they are prepended
-  const likeButton = cardElement.querySelector(".card__button");
-  //Select delete button
-  // const deleteButton = cardElement.querySelector(".card__button_delete");
-
-  cardImage.addEventListener("click", () => {
-    previewCardImage.src = cardImage.src;
-    previewCardTitle.textContent = cardData.name;
-    previewCardImage.alt = cardData.name;
-    openPopup(picturePreviewModal);
-  });
-
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__button_active");
   });
