@@ -19,6 +19,7 @@ export default class FormValidator {
 
   _showInputError(inputEl) {
     const errorMessage = this._form.querySelector(`#${inputEl.id}-error`);
+    console.log("I'm adding", this._inputErrorClass);
     inputEl.classList.add(this._inputErrorClass);
     errorMessage.textContent = inputEl.validationMessage;
     errorMessage.classList.add(this._errorMessage);
@@ -28,7 +29,7 @@ export default class FormValidator {
     const errorMessage = this._form.querySelector(`#${inputEl.id}-error`);
     inputEl.classList.remove(this._inputErrorClass);
     errorMessage.textContent = "";
-    errorMessage.classList.remove(errorClass);
+    errorMessage.classList.remove(this._errorClass);
   }
 
   _hasInvalidInput(inputList) {
@@ -47,14 +48,28 @@ export default class FormValidator {
 
   _toggleButtonState() {
     //Continue from here
+    let flag = this._hasInvalidInput(this._inputElements);
+
+    if (flag) {
+      this.disableSubmitButton();
+    } else {
+      this.enableButton();
+    }
   }
 
   _setEventListeners() {
     this._inputElements = [...this._form.querySelectorAll(this._inputSelector)];
     this._submitButton = this._form.querySelector(this._submitButtonSelector);
+    this._inputElements.forEach((inputEl) => {
+      inputEl.addEventListener("input", (e) => {
+        this._checkInputValidity(inputEl);
+        this._toggleButtonState();
+      });
+    });
   }
 
   _checkInputValidity(inputEl) {
+    console.log("It loggs till _checkInputValidity");
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl);
     } else {
@@ -62,5 +77,7 @@ export default class FormValidator {
     }
   }
 
-  enableValidation() {}
+  enableValidation() {
+    this._setEventListeners();
+  }
 }

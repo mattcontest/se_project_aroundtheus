@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -215,3 +216,16 @@ addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 previewCloseButton.addEventListener("click", () =>
   closePopup(picturePreviewModal)
 );
+
+const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__btn",
+  inactiveButtonClass: "modal__btn_close",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
+const addCardFormValidator = new FormValidator(config, addCardForm);
+
+addCardFormValidator.enableValidation();
