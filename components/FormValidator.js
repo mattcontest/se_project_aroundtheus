@@ -20,9 +20,10 @@ export default class FormValidator {
   _showInputError(inputEl) {
     const errorMessage = this._form.querySelector(`#${inputEl.id}-error`);
     console.log("I'm adding", this._inputErrorClass);
+    console.log("I'm also adding", errorMessage);
     inputEl.classList.add(this._inputErrorClass);
-    errorMessage.textContent = inputEl.validationMessage + "Coming from here!!";
-    errorMessage.classList.add(this._errorMessage);
+    errorMessage.textContent = inputEl.validationMessage;
+    // errorMessage.classList.add(this._errorMessage);
   }
 
   _hideInputError(inputEl) {
@@ -55,6 +56,10 @@ export default class FormValidator {
     } else {
       this.enableButton();
     }
+  }
+
+  resetValidaiton() {
+    this.disableSubmitButton();
   }
 
   _setEventListeners() {

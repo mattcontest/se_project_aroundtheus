@@ -72,6 +72,7 @@ const addCloseButton = addModal.querySelector(".modal__close");
 const editModalForm = document.querySelector(".modal__form");
 
 //Form Data
+const addCardButton = document.querySelector(".modal__btn-form_add");
 const addCardForm = document.querySelector(".modal__form_card");
 const cardTitleForm = addModal.querySelector(".modal__input_type_title");
 const cardImageForm = addModal.querySelector(".modal__input_type_image");
@@ -158,6 +159,7 @@ function handleAddCardFormSubmit(e) {
   renderCard(cardElement);
   closePopup(addModal);
   e.target.reset();
+  addCardFormValidator.resetValidaiton();
 }
 
 /* ------------------------------------------------------------------------------------------- */
