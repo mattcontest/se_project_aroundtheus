@@ -20,7 +20,7 @@
 
 .modal__error {
   /* opacity: 0; */
-  visibility: hidden;
+  /* visibility: hidden; */
   font-size: 12px;
   line-height: 15px;
   color: #ff0000;

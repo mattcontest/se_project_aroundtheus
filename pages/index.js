@@ -68,6 +68,9 @@ const addModalContainer = addModal.querySelector(".modal__container");
 const addButton = document.querySelector(".profile__add-button");
 const addCloseButton = addModal.querySelector(".modal__close");
 
+//Edit Modal Form
+const editModalForm = document.querySelector(".modal__form");
+
 //Form Data
 const addCardForm = document.querySelector(".modal__form_card");
 const cardTitleForm = addModal.querySelector(".modal__input_type_title");
@@ -227,5 +230,7 @@ const config = {
 };
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
+const editCardFormValidator = new FormValidator(config, editModalForm);
 
 addCardFormValidator.enableValidation();
+editCardFormValidator.enableValidation();

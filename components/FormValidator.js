@@ -21,7 +21,7 @@ export default class FormValidator {
     const errorMessage = this._form.querySelector(`#${inputEl.id}-error`);
     console.log("I'm adding", this._inputErrorClass);
     inputEl.classList.add(this._inputErrorClass);
-    errorMessage.textContent = inputEl.validationMessage;
+    errorMessage.textContent = inputEl.validationMessage + "Coming from here!!";
     errorMessage.classList.add(this._errorMessage);
   }
 
