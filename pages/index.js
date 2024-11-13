@@ -64,7 +64,7 @@ const addCloseButton = addModal.querySelector(".modal__close");
 const editModalForm = document.querySelector(".modal__form");
 
 //Form Data
-const addCardButton = document.querySelector(".modal__btn-form_add");
+const addCardButton = document.querySelector(".modal__btn_type_add");
 const addCardForm = document.querySelector(".modal__form_card");
 const cardTitleForm = addModal.querySelector(".modal__input_type_title");
 const cardImageForm = addModal.querySelector(".modal__input_type_image");
@@ -136,6 +136,7 @@ function handleAddCardFormSubmit(e) {
   closePopup(addModal);
   e.target.reset();
   addCardFormValidator.disableSubmitButton();
+  addCardFormValidator.resetValidation();
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -190,7 +191,6 @@ initialCards.forEach((cardData) => {
 });
 
 addButton.addEventListener("click", () => {
-  addCardFormValidator.resetValidation();
   openPopup(addModal);
 });
 
