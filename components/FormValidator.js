@@ -49,7 +49,7 @@ export default class FormValidator {
 
   _toggleButtonState() {
     //Continue from here
-    let flag = this._hasInvalidInput(this._inputElements);
+    const flag = this._hasInvalidInput(this._inputElements);
 
     if (flag) {
       this.disableSubmitButton();
@@ -58,8 +58,12 @@ export default class FormValidator {
     }
   }
 
-  resetValidaiton() {
-    this.disableSubmitButton();
+  resetValidation() {
+    this._toggleButtonState();
+    this._inputElements.forEach((el) => {
+      this._hideInputError(el);
+    });
+    // this.disableSubmitButton();
   }
 
   _setEventListeners() {

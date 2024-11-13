@@ -28,14 +28,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Y",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
-// const card = new Card(cardData, "#card__template");
-// card.getView();
-
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Elements                                                  */
 /* ------------------------------------------------------------------------------------------- */
@@ -122,22 +114,6 @@ function handleImageClick(data) {
   openPopup(picturePreviewModal);
 }
 
-function getCardElement(cardData) {
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__button_active");
-  });
-
-  // deleteButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
-
-  cardTitle.textContent = cardData.name;
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-
-  return cardElement;
-}
-
 /* ------------------------------------------------------------------------------------------- */
 /*                                  Event Handlers                                             */
 /* ------------------------------------------------------------------------------------------- */
@@ -159,7 +135,7 @@ function handleAddCardFormSubmit(e) {
   renderCard(cardElement);
   closePopup(addModal);
   e.target.reset();
-  addCardFormValidator.resetValidaiton();
+  addCardFormValidator.resetValidation();
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -202,6 +178,7 @@ picturePreviewModal.addEventListener("click", (event) => {
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
+  // editCardFormValidator.resetValidation();
   openPopup(editProfileModal);
 });
 
@@ -212,7 +189,10 @@ initialCards.forEach((cardData) => {
   renderCard(cardData);
 });
 
-addButton.addEventListener("click", () => openPopup(addModal));
+addButton.addEventListener("click", () => {
+  addCardFormValidator.resetValidation();
+  openPopup(addModal);
+});
 
 addCloseButton.addEventListener("click", () => closePopup(addModal));
 
@@ -226,7 +206,7 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__btn",
-  inactiveButtonClass: "modal__btn_close",
+  inactiveButtonClass: "modal__btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };

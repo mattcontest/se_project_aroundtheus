@@ -80,7 +80,7 @@ const config = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__btn",
-  inactiveButtonClass: "modal__btn_close",
+  inactiveButtonClass: "modal__btn_disabled",
   inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };

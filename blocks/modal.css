@@ -187,7 +187,7 @@
   line-height: 16.94px;
 }
 
-.modal__btn_close {
+.modal__btn_disabled {
   background-color: #ffffff;
   border: solid 1px #000000;
   color: #000000;
