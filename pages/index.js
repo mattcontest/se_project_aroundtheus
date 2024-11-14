@@ -135,8 +135,7 @@ function handleAddCardFormSubmit(e) {
   renderCard(cardElement);
   closePopup(addModal);
   e.target.reset();
-  addCardFormValidator.disableSubmitButton();
-  addCardFormValidator.resetValidation();
+  // addCardFormValidator.resetValidation();
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -179,7 +178,7 @@ picturePreviewModal.addEventListener("click", (event) => {
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
-  // editCardFormValidator.resetValidation();
+  editCardFormValidator.resetValidation();
   openPopup(editProfileModal);
 });
 
@@ -191,6 +190,8 @@ initialCards.forEach((cardData) => {
 });
 
 addButton.addEventListener("click", () => {
+  //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
+  addCardFormValidator.disableSubmitButton();
   openPopup(addModal);
 });
 
