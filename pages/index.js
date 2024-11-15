@@ -135,7 +135,8 @@ function handleAddCardFormSubmit(e) {
   renderCard(cardElement);
   closePopup(addModal);
   e.target.reset();
-  // addCardFormValidator.resetValidation();
+  //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
+  addCardFormValidator.disableSubmitButton();
 }
 
 /* ------------------------------------------------------------------------------------------- */
@@ -190,8 +191,6 @@ initialCards.forEach((cardData) => {
 });
 
 addButton.addEventListener("click", () => {
-  //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
-  addCardFormValidator.disableSubmitButton();
   openPopup(addModal);
 });
 
