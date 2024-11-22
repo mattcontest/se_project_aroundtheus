@@ -1,9 +1,12 @@
-import Popup from "./Popup";
+import Popup from "./Popup.js";
 
-class PopupWithForm extends Popup {
+export default class PopupWithForm extends Popup {
   constructor(popupSelector, handleFormSubmit) {
     super({ popupSelector });
+    console.log("PopupwithForm  - PopupElement:", this.popupElement);
     this.popupForm = this.popupElement.querySelector(".modal__form");
+    console.log("PopupwithForm  - PopupElement:", this.popupElement);
+
     this.hanldeFormSubmit = handleFormSubmit;
   }
 
@@ -18,7 +21,7 @@ class PopupWithForm extends Popup {
   }
 
   close() {
-    this._popupForm.reset();
+    this.popupForm.reset();
     super.close();
   }
 
@@ -32,5 +35,3 @@ class PopupWithForm extends Popup {
     });
   }
 }
-
-const newTest = new PopupWithForm();
