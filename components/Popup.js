@@ -31,9 +31,7 @@ export default class Popup {
 
   setEventListeners() {
     //sets event listeners
-    // const closeButton = this.popupElement.querySelector(".modal__close");
-    // closeButton.addEventListener("click", () => this.close());
-    // const openButton = this.popupElement.querySelector(".modal_open");
-    // openButton.addEventListener("click", () => this.open());
+    const closeButton = this.popupElement.querySelector(".modal__close");
+    closeButton.addEventListener("click", () => this.close());
   }
 }
