@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <img
+        <!-- <img
           src="./images/logo.svg"
+          alt="Triple Ten Logo, is clearly a person and definitely not an object"
+          class="header__logo"
+        /> -->
+        <img
+          src="<%=require('./images/logo.svg')%>"
           alt="Triple Ten Logo, is clearly a person and definitely not an object"
           class="header__logo"
         />
@@ -26,8 +31,14 @@
         <!-- #Thanks -->
 
         <section class="profile page__section">
-          <img
+          <!-- <img
             src="./images/jacques-cousteau.jpg"
+            alt="Jacques Cousteau"
+            class="profile__picture"
+          /> -->
+
+          <img
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="Jacques Cousteau"
             class="profile__picture"
           />
@@ -156,7 +167,7 @@
       </li>
     </template>
 
-    <script src="./pages/index.js" type="module"></script>
+    <!-- <script src="./pages/index.js" type="module"></script> -->
     <!-- <script src="./scripts/validation.js"></script> -->
   </body>
 </html>
