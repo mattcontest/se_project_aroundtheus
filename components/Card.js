@@ -56,7 +56,7 @@ export default class Card {
     this._cardImage.alt = this.name;
     this._cardTitle.textContent = this.name;
 
-    console.log(this._cardElement);
+    // console.log(this._cardElement);
 
     //get the card view
     //set event listeners
