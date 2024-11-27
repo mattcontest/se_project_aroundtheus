@@ -115,8 +115,6 @@ const cardSection = new Section(
 
 cardSection.renderItems(initialCards);
 
-// console.log(userInfo.getUserInfo());
-
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Functions                                                 */
 /* ------------------------------------------------------------------------------------------- */
@@ -217,11 +215,11 @@ addModal.addEventListener("click", (event) => {
 });
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
-picturePreviewModal.addEventListener("click", (event) => {
-  if (!modalPictureContainer.contains(event.target)) {
-    closePopup(picturePreviewModal);
-  }
-});
+// picturePreviewModal.addEventListener("click", (event) => {
+//   if (!modalPictureContainer.contains(event.target)) {
+//     closePopup(picturePreviewModal);
+//   }
+// });
 
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
@@ -252,9 +250,9 @@ addCloseButton.addEventListener("click", () =>
 
 addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
-previewCloseButton.addEventListener("click", () =>
-  closePopup(picturePreviewModal)
-);
+// previewCloseButton.addEventListener("click", () =>
+//   closePopup(picturePreviewModal)
+// );
 
 const config = {
   formSelector: ".modal__form",
