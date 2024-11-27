@@ -33,6 +33,7 @@ export default class PopupWithForm extends Popup {
     //With super we are calling the parent class setEventListeners when available
     console.log("PopupWithForm.setEventListeners called");
     super.setEventListeners();
+    this.popupForm.removeEventListener("submit", this.hanldeFormSubmit);
 
     if (!this._isAdded) {
       this.popupForm.addEventListener("submit", (e) => {

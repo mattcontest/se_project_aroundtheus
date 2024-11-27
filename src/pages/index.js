@@ -161,18 +161,32 @@ function handleImageClick(data) {
 /*                                  Event Handlers                                             */
 /* ------------------------------------------------------------------------------------------- */
 
-function handleProfileFormSubmit(e) {
-  e.preventDefault();
+function handleProfileFormSubmit(inputData) {
+  // e.preventDefault();
   // profileName.textContent = profileNameInput.value;
   // profileSubtitle.textContent = profileSubtitleInput.value;
+  console.log("Check this payload", inputData.title);
+  console.log("Check this payload", inputData.description);
+  // console.log("Check this payload", inputData.job);
+
+  // userInfo.setUserInfo({
+  //   profileNameData: profileNameInput.value,
+  //   profileJobData: profileSubtitleInput.value,
+  // });
+
+  // if (!inputData.title || !inputData.description) {
+  //   console.log("Invalid input");
+  //   profileEditModal.close();
+  //   return;
+  // }
 
   userInfo.setUserInfo({
-    profileNameData: profileNameInput.value,
-    profileJobData: profileSubtitleInput.value,
+    title: inputData.title,
+    description: inputData.description,
   });
   //Substituted closePopup with the instantiation of PopupWithForm
   profileEditModal.close();
-  e.target.reset();
+  // e.target.reset();
   console.log("Fire in the hall!");
 }
 
