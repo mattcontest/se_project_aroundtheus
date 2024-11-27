@@ -7,8 +7,10 @@ export default class PopupWithForm extends Popup {
     this.popupForm = this.popupElement.querySelector(".modal__form");
     console.log("PopupwithForm  - PopupElement:", this.popupElement);
     // this.inputList = this.popupElement.querySelectorAll(".modal__input");
+    this.button = this.popupForm.querySelector(".modal__btn_type_add");
 
     this.hanldeFormSubmit = handleFormSubmit;
+    this._isAdded = false;
   }
 
   _getInputValues() {
@@ -22,17 +24,36 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
+    this._isAdded = false;
     this.popupForm.reset();
     super.close();
   }
 
   setEventListeners() {
     //With super we are calling the parent class setEventListeners when available
+    console.log("PopupWithForm.setEventListeners called");
     super.setEventListeners();
-    this.popupForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
-      this.hanldeFormSubmit(this._getInputValues());
-    });
+
+    if (!this._isAdded) {
+      this.popupForm.addEventListener("submit", (e) => {
+        console.log("Addind this for  ->", this.popupElement);
+        e.preventDefault();
+        //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
+        //Passing e to the handleFormSubmit
+        this.hanldeFormSubmit(this._getInputValues());
+        this.popupForm.reset();
+        this.close();
+        // this.hanldeFormSubmit(e);
+      });
+      this._isAdded = true;
+
+      console.log(
+        "Listener added. _isAdded set to true for",
+        this.popupElement
+      );
+      console.log("Check this is added", this._isAdded);
+    } else {
+      console.log("Already added so skipping");
+    }
   }
 }

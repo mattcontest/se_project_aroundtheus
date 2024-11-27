@@ -176,16 +176,34 @@ function handleProfileFormSubmit(e) {
   console.log("Fire in the hall!");
 }
 
-function handleAddCardFormSubmit(e) {
-  e.preventDefault();
-  const titleCard = cardTitleForm.value;
-  const linkCard = cardImageForm.value;
-  const cardElement = createCard({ name: titleCard, link: linkCard });
+function handleAddCardFormSubmit(inputValues) {
+  console.log(inputValues.title, "<- Check here");
+  console.log(inputValues.description, "<- Check here");
+  //Had to remove e.preventDefaulf for fixing the bug
+  //But this leads to another submission of null inputValues
+  //To prevent this I had to insert the if statement @195
+  // e.preventDefault();
+  // const titleCard = cardTitleForm.value;
+  // const linkCard = cardImageForm.value;
+  const cardElement = createCard({
+    name: inputValues.title,
+    link: inputValues.description,
+  });
+  //Preventing the 2nd call of handleAddCardFormSubmit!
+  //Needs to be found where the 2nd call is being made and how to prevent it
+  //Is it the lack of e.preventDefault()? (But I cannot pass 'e/evt' as a parameter
+  //wher there's inputValues)
+  //Can you spot it Nikolay?
+  if (!inputValues.title || !inputValues.description) {
+    console.log("Invalid input");
+    return;
+  }
+  addCardForm.reset();
   cardSection.addItem(cardElement);
-  addCardModal.close();
-  e.target.reset();
+  // e.target.reset();
   //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
   addCardFormValidator.disableSubmitButton();
+  addCardModal.close();
 }
 
 /* ------------------------------------------------------------------------------------------- */
