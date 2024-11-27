@@ -8,9 +8,7 @@ export default class PopupWithForm extends Popup {
     console.log("PopupwithForm  - PopupElement:", this.popupElement);
     // this.inputList = this.popupElement.querySelectorAll(".modal__input");
     this.button = this.popupForm.querySelector(".modal__btn_type_add");
-
     this.hanldeFormSubmit = handleFormSubmit;
-    this._isAdded = false;
   }
 
   _getInputValues() {
@@ -24,7 +22,6 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    this._isAdded = false;
     this.popupForm.reset();
     super.close();
   }
@@ -35,26 +32,19 @@ export default class PopupWithForm extends Popup {
     super.setEventListeners();
     this.popupForm.removeEventListener("submit", this.hanldeFormSubmit);
 
-    if (!this._isAdded) {
-      this.popupForm.addEventListener("submit", (e) => {
-        console.log("Addind this for  ->", this.popupElement);
-        e.preventDefault();
-        //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
-        //Passing e to the handleFormSubmit
-        this.hanldeFormSubmit(this._getInputValues());
-        this.popupForm.reset();
-        this.close();
-        // this.hanldeFormSubmit(e);
-      });
-      this._isAdded = true;
+    this.popupForm.addEventListener("submit", (e) => {
+      // console.log("Addind this for  ->", this.popupElement);
+      e.preventDefault();
+      //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
+      //Passing e to the handleFormSubmit
+      this.hanldeFormSubmit(this._getInputValues());
+      this.popupForm.reset();
+      this.close();
+      // this.hanldeFormSubmit(e);
+    });
+    this._isAdded = true;
 
-      console.log(
-        "Listener added. _isAdded set to true for",
-        this.popupElement
-      );
-      console.log("Check this is added", this._isAdded);
-    } else {
-      console.log("Already added so skipping");
-    }
+    console.log("Listener added. _isAdded set to true for", this.popupElement);
+    console.log("Check this is added", this._isAdded);
   }
 }

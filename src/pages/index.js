@@ -165,37 +165,21 @@ function handleProfileFormSubmit(inputData) {
   // e.preventDefault();
   // profileName.textContent = profileNameInput.value;
   // profileSubtitle.textContent = profileSubtitleInput.value;
-  console.log("Check this payload", inputData.title);
-  console.log("Check this payload", inputData.description);
-  // console.log("Check this payload", inputData.job);
-
-  // userInfo.setUserInfo({
-  //   profileNameData: profileNameInput.value,
-  //   profileJobData: profileSubtitleInput.value,
-  // });
-
-  // if (!inputData.title || !inputData.description) {
-  //   console.log("Invalid input");
-  //   profileEditModal.close();
-  //   return;
-  // }
-
+  // console.log("Check this payload", inputData.title);
+  // console.log("Check this payload", inputData.description);
   userInfo.setUserInfo({
-    title: inputData.title,
-    description: inputData.description,
+    profileNameData: inputData.title,
+    profileJobData: inputData.description,
   });
   //Substituted closePopup with the instantiation of PopupWithForm
+  editModalForm.reset();
+  editCardFormValidator.disableSubmitButton();
   profileEditModal.close();
-  // e.target.reset();
-  console.log("Fire in the hall!");
 }
 
 function handleAddCardFormSubmit(inputValues) {
-  console.log(inputValues.title, "<- Check here");
-  console.log(inputValues.description, "<- Check here");
-  //Had to remove e.preventDefaulf for fixing the bug
-  //But this leads to another submission of null inputValues
-  //To prevent this I had to insert the if statement @195
+  // console.log(inputValues.title, "<- Check here");
+  // console.log(inputValues.description, "<- Check here");
   // e.preventDefault();
   // const titleCard = cardTitleForm.value;
   // const linkCard = cardImageForm.value;
@@ -203,18 +187,8 @@ function handleAddCardFormSubmit(inputValues) {
     name: inputValues.title,
     link: inputValues.description,
   });
-  //Preventing the 2nd call of handleAddCardFormSubmit!
-  //Needs to be found where the 2nd call is being made and how to prevent it
-  //Is it the lack of e.preventDefault()? (But I cannot pass 'e/evt' as a parameter
-  //wher there's inputValues)
-  //Can you spot it Nikolay?
-  if (!inputValues.title || !inputValues.description) {
-    console.log("Invalid input");
-    return;
-  }
   addCardForm.reset();
   cardSection.addItem(cardElement);
-  // e.target.reset();
   //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
   addCardFormValidator.disableSubmitButton();
   addCardModal.close();
@@ -257,11 +231,12 @@ profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
   editCardFormValidator.resetValidation();
+  editCardFormValidator.disableSubmitButton();
   profileEditModal.open();
   //Substituted openPopup with the instantiation of PopupWithForm
 });
 
-profileEditForm.addEventListener("submit", handleProfileFormSubmit);
+// profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 // Initializing all cards through getCardElement
 // initialCards.forEach((cardData) => {
@@ -280,7 +255,7 @@ addCloseButton.addEventListener("click", () =>
   addCardModal.close()
 );
 
-addCardForm.addEventListener("submit", handleAddCardFormSubmit);
+// addCardForm.addEventListener("submit", handleAddCardFormSubmit);
 
 // previewCloseButton.addEventListener("click", () =>
 //   closePopup(picturePreviewModal)
