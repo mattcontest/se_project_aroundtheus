@@ -5,6 +5,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "../pages/index.css";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -101,6 +102,19 @@ const userInfo = new UserInfo({
   profileJob: ".profile__subtitle",
 });
 
+const cardSection = new Section(
+  {
+    initialCards,
+    renderer: (cardData) => {
+      const cardElement = createCard(cardData);
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards__list"
+);
+
+cardSection.renderItems(initialCards);
+
 // console.log(userInfo.getUserInfo());
 
 /* ------------------------------------------------------------------------------------------- */
@@ -112,13 +126,13 @@ function createCard(data) {
   return card.getView();
 }
 
-function renderCard(cardData) {
-  // const cardElement = getCardElement(cardData);
-  // const card = new Card(cardData, "#card__template");
-  const cardElement = createCard(cardData);
-  // const cardElement = card.getView();
-  cardList.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   // const cardElement = getCardElement(cardData);
+//   // const card = new Card(cardData, "#card__template");
+//   const cardElement = createCard(cardData);
+//   // const cardElement = card.getView();
+//   cardList.prepend(cardElement);
+// }
 
 // function closePopup(modal) {
 //   modal.classList.remove("modal_open");
@@ -170,9 +184,8 @@ function handleAddCardFormSubmit(e) {
   e.preventDefault();
   const titleCard = cardTitleForm.value;
   const linkCard = cardImageForm.value;
-  const cardElement = { name: titleCard, link: linkCard };
-  renderCard(cardElement);
-  // closePopup(addModal);
+  const cardElement = createCard({ name: titleCard, link: linkCard });
+  cardSection.addItem(cardElement);
   addCardModal.close();
   e.target.reset();
   //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
@@ -228,9 +241,11 @@ profileEditButton.addEventListener("click", () => {
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
 
 // Initializing all cards through getCardElement
-initialCards.forEach((cardData) => {
-  renderCard(cardData);
-});
+// initialCards.forEach((cardData) => {
+//   //Working on implementing Card Section here
+//   renderCard(cardData);
+//   cardSection.renderItems(ca);
+// });
 
 addButton.addEventListener("click", () => {
   // openPopup(addModal);
