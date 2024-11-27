@@ -172,8 +172,6 @@ function handleProfileFormSubmit(e) {
     profileNameData: profileNameInput.value,
     profileJobData: profileSubtitleInput.value,
   });
-
-  // closePopup(editProfileModal);
   //Substituted closePopup with the instantiation of PopupWithForm
   profileEditModal.close();
   e.target.reset();
@@ -196,12 +194,9 @@ function handleAddCardFormSubmit(e) {
 /*                                   Event Listeners                                           */
 /* ------------------------------------------------------------------------------------------- */
 
-profileModalCloseButton.addEventListener(
-  "click",
-  () =>
-    //Substituted closePopup with the instantiation of PopupWithForm
-    profileEditModal.close()
-  // closePopup(editProfileModal)
+profileModalCloseButton.addEventListener("click", () =>
+  //Substituted closePopup with the instantiation of PopupWithForm
+  profileEditModal.close()
 );
 
 //Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
@@ -217,7 +212,6 @@ editModal.addEventListener("click", (event) => {
 
 addModal.addEventListener("click", (event) => {
   if (!addModalContainer.contains(event.target)) {
-    // closePopup(addModal);
     addCardModal.close();
   }
 });
@@ -235,7 +229,6 @@ profileEditButton.addEventListener("click", () => {
   editCardFormValidator.resetValidation();
   profileEditModal.open();
   //Substituted openPopup with the instantiation of PopupWithForm
-  // openPopup(editProfileModal);
 });
 
 profileEditForm.addEventListener("submit", handleProfileFormSubmit);
