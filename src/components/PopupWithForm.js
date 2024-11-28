@@ -22,7 +22,7 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    this.popupForm.reset();
+    // this.popupForm.reset();
     super.close();
   }
 
@@ -30,7 +30,6 @@ export default class PopupWithForm extends Popup {
     //With super we are calling the parent class setEventListeners when available
     // console.log("PopupWithForm.setEventListeners called");
     super.setEventListeners();
-    this.popupForm.removeEventListener("submit", this.hanldeFormSubmit);
 
     this.popupForm.addEventListener("submit", (e) => {
       // console.log("Addind this for  ->", this.popupElement);
