@@ -91,6 +91,7 @@ const profileEditModal = new PopupWithForm(
 );
 profileEditModal.setEventListeners();
 
+// const addCardModal = new PopupWithForm("#add-modal", handleAddCardFormSubmit);
 const addCardModal = new PopupWithForm("#add-modal", handleAddCardFormSubmit);
 addCardModal.setEventListeners();
 
