@@ -1,9 +1,9 @@
 export default class Popup {
   constructor({ popupSelector }) {
-    console.log("Popupselector received in Poupup", popupSelector);
+    // console.log("Popupselector received in Poupup", popupSelector);
     this.popupElement = document.querySelector(popupSelector);
-    console.log("Popup Element:", this.popupElement);
-    console.log("Check this", document.querySelector("#edit-modal"));
+    // console.log("Popup Element:", this.popupElement);
+    // console.log("Check this", document.querySelector("#edit-modal"));
     //Binding handleEscClose to ensure its functionaliting throught PopupWithForm
     this._handleEscClose = this._handleEscClose.bind(this);
   }

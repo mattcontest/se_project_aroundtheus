@@ -19,8 +19,8 @@ export default class FormValidator {
 
   _showInputError(inputEl) {
     const errorMessage = this._form.querySelector(`#${inputEl.id}-error`);
-    console.log("I'm adding", this._inputErrorClass);
-    console.log("I'm also adding", errorMessage);
+    // console.log("I'm adding", this._inputErrorClass);
+    // console.log("I'm also adding", errorMessage);
     inputEl.classList.add(this._inputErrorClass);
     errorMessage.textContent = inputEl.validationMessage;
     // errorMessage.classList.add(this._errorMessage);
@@ -79,7 +79,7 @@ export default class FormValidator {
   }
 
   _checkInputValidity(inputEl) {
-    console.log("It loggs till _checkInputValidity");
+    // console.log("It loggs till _checkInputValidity");
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl);
     } else {

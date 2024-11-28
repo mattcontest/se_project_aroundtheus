@@ -87,36 +87,7 @@ function createCard(data) {
   return card.getView();
 }
 
-// function renderCard(cardData) {
-//   // const cardElement = getCardElement(cardData);
-//   // const card = new Card(cardData, "#card__template");
-//   const cardElement = createCard(cardData);
-//   // const cardElement = card.getView();
-//   cardList.prepend(cardElement);
-// }
-
-// function closePopup(modal) {
-//   modal.classList.remove("modal_open");
-//   document.removeEventListener("keydown", handleEscapeKey);
-// }
-
-// function openPopup(modal) {
-//   modal.classList.add("modal_open");
-//   document.addEventListener("keydown", handleEscapeKey);
-// }
-
-// function handleEscapeKey(evt) {
-//   if (evt.key === "Escape") {
-//     const openModal = document.querySelector(".modal_open");
-//     closePopup(openModal);
-//   }
-// }
-
 function handleImageClick(data) {
-  // previewCardImage.src = data.link;
-  // previewCardImage.alt = data.name;
-  // previewCardTitle.textContent = data.name;
-  // openPopup(picturePreviewModal);
   previewCardModal.open(data);
 }
 
@@ -125,11 +96,6 @@ function handleImageClick(data) {
 /* ------------------------------------------------------------------------------------------- */
 
 function handleProfileFormSubmit(inputData) {
-  // e.preventDefault();
-  // profileName.textContent = profileNameInput.value;
-  // profileSubtitle.textContent = profileSubtitleInput.value;
-  // console.log("Check this payload", inputData.title);
-  // console.log("Check this payload", inputData.description);
   userInfo.setUserInfo({
     profileNameData: inputData.title,
     profileJobData: inputData.description,
@@ -141,18 +107,12 @@ function handleProfileFormSubmit(inputData) {
 }
 
 function handleAddCardFormSubmit(inputValues) {
-  // console.log(inputValues.title, "<- Check here");
-  // console.log(inputValues.description, "<- Check here");
-  // e.preventDefault();
-  // const titleCard = cardTitleForm.value;
-  // const linkCard = cardImageForm.value;
   const cardElement = createCard({
     name: inputValues.title,
     link: inputValues.description,
   });
   addCardForm.reset();
   cardSection.addItem(cardElement);
-  //Added addCardFormValidator.disableSubmitButton(); here before opening the modal
   addCardFormValidator.disableSubmitButton();
   addCardModal.close();
 }
@@ -183,13 +143,6 @@ addModal.addEventListener("click", (event) => {
   }
 });
 
-//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
-// picturePreviewModal.addEventListener("click", (event) => {
-//   if (!modalPictureContainer.contains(event.target)) {
-//     closePopup(picturePreviewModal);
-//   }
-// });
-
 profileEditButton.addEventListener("click", () => {
   profileNameInput.value = profileName.textContent;
   profileSubtitleInput.value = profileSubtitle.textContent;
@@ -199,30 +152,11 @@ profileEditButton.addEventListener("click", () => {
   //Substituted openPopup with the instantiation of PopupWithForm
 });
 
-// profileEditForm.addEventListener("submit", handleProfileFormSubmit);
-
-// Initializing all cards through getCardElement
-// initialCards.forEach((cardData) => {
-//   //Working on implementing Card Section here
-//   renderCard(cardData);
-//   cardSection.renderItems(ca);
-// });
-
 addButton.addEventListener("click", () => {
-  // openPopup(addModal);
   addCardModal.open();
 });
 
-addCloseButton.addEventListener("click", () =>
-  // closePopup(addModal)
-  addCardModal.close()
-);
-
-// addCardForm.addEventListener("submit", handleAddCardFormSubmit);
-
-// previewCloseButton.addEventListener("click", () =>
-//   closePopup(picturePreviewModal)
-// );
+addCloseButton.addEventListener("click", () => addCardModal.close());
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
 const editCardFormValidator = new FormValidator(config, editModalForm);

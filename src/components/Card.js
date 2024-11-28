@@ -7,19 +7,20 @@ export default class Card {
   }
 
   _setEventListeners() {
-    // alert("You did it!");
-    this._cardElement
-      .querySelector(".card__button_delete")
-      .addEventListener("click", () => {
-        // alert(this._name + "It's working");
-        this._handleDeleteCard();
-      });
+    // this._cardElement
+    //   .querySelector(".card__button_delete")
 
-    this._cardElement
-      .querySelector(".card__button")
-      .addEventListener("click", () => {
-        this._handleLikeIcon();
-      });
+    this._deleteButton.addEventListener("click", () => {
+      // alert(this._name + "It's working");
+      this._handleDeleteCard();
+    });
+
+    // this._cardElement
+    //   .querySelector(".card__button")
+
+    this._likeButton.addEventListener("click", () => {
+      this._handleLikeIcon();
+    });
 
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick({ link: this.link, name: this.name });
