@@ -6,6 +6,7 @@ export default class Popup {
     // console.log("Check this", document.querySelector("#edit-modal"));
     //Binding handleEscClose to ensure its functionaliting throught PopupWithForm
     this._handleEscClose = this._handleEscClose.bind(this);
+    this._handleOverlayClose = this._handleOverlayClose.bind(this);
   }
 
   open() {
@@ -29,9 +30,16 @@ export default class Popup {
     }
   }
 
+  _handleOverlayClose(evt) {
+    if (evt.target === this.popupElement) {
+      this.close();
+    }
+  }
+
   setEventListeners() {
     //sets event listeners
     const closeButton = this.popupElement.querySelector(".modal__close");
     closeButton.addEventListener("click", () => this.close());
+    this.popupElement.addEventListener("mousedown", this._handleOverlayClose);
   }
 }
