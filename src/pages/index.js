@@ -120,24 +120,10 @@ function handleAddCardFormSubmit(inputValues) {
 /*                                   Event Listeners                                           */
 /* ------------------------------------------------------------------------------------------- */
 
-//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
-editModal.addEventListener("click", (event) => {
-  if (!editModalContainer.contains(event.target)) {
-    profileEditModal.close();
-  }
-});
-
-//Implemented logic to close modal when clicking otuside of the Modal Container with its attributes
-
-addModal.addEventListener("click", (event) => {
-  if (!addModalContainer.contains(event.target)) {
-    addCardModal.close();
-  }
-});
-
 profileEditButton.addEventListener("click", () => {
-  profileNameInput.value = userInfo.name.textContent;
-  profileSubtitleInput.value = userInfo.job.textContent;
+  const { name, description } = userInfo.getUserInfo();
+  profileNameInput.value = name;
+  profileSubtitleInput.value = description;
   editCardFormValidator.resetValidation();
   editCardFormValidator.disableSubmitButton();
   profileEditModal.open();
@@ -146,8 +132,6 @@ profileEditButton.addEventListener("click", () => {
 addButton.addEventListener("click", () => {
   addCardModal.open();
 });
-
-addCloseButton.addEventListener("click", () => addCardModal.close());
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
 const editCardFormValidator = new FormValidator(config, editModalForm);
