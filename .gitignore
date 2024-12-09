@@ -1,0 +1,6 @@
+.DS_Store
+.prettier
+node_modules/
+dist/
+
+
