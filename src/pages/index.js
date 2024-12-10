@@ -8,6 +8,7 @@ import "../pages/index.css";
 import Section from "../components/Section.js";
 import { initialCards } from "../utils/constants.js";
 import { config } from "../utils/constants.js";
+import Api from "../components/Api.js";
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Elements                                                  */
@@ -76,7 +77,7 @@ const cardSection = new Section(
   ".cards__list"
 );
 
-cardSection.renderItems(initialCards);
+// cardSection.renderItems(initialCards);
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Functions                                                 */
@@ -138,3 +139,62 @@ const editCardFormValidator = new FormValidator(config, editModalForm);
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+/* ------------------------------------------------------------------------------------------- */
+/*                                   API Calls                                           */
+/* ------------------------------------------------------------------------------------------- */
+
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "524600c8-c5da-4bc8-a443-7b5815826c0b",
+    // "Content-Type": "application/json",
+  },
+});
+
+// api
+//   .getUserData()
+//   .then((data) => {
+//     return data.json();
+//   })
+//   .then((data) => {
+//     userInfo.setUserInfo({
+//       profileNameData: data.name,
+//       profileJobData: data.about,
+//     });
+//   })
+//   .catch((err) => console.error(`Error fetching user data: ${err}`));
+
+// api
+//   .getInitialCards()
+//   .then((res) => {
+//     if (res.ok) {
+//       return res.json();
+//     } else {
+//       return Promise.reject(`Error: ${res.status}`);
+//     }
+//   })
+//   .then((data) => {
+//     console.log(data);
+//     cardSection.renderItems(data);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
+
+api.getData().then(({ userData, cards }) => {
+  console.log("Check here", userData);
+  console.log("Check here", cards);
+
+  userInfo.setUserInfo({
+    profileNameData: userData.name,
+    profileJobData: userData.about,
+  });
+  cardSection.renderItems(cards);
+});
+// .then(({ userInfoData, cards }) => {
+//   console.log(userInfoData, cards);
+// })
+// .catch((err) => {
+//   console.error("Failed to load user or cards", err);
+// });
