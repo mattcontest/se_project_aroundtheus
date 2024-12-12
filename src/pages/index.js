@@ -103,7 +103,8 @@ function handleProfileFormSubmit(inputData) {
       name: inputData.title,
       about: inputData.description,
     })
-    .then(() => {
+    .then((res) => {
+      console.log("Visualize _id", res._id);
       userInfo.setUserInfo({
         profileNameData: inputData.title,
         profileJobData: inputData.description,
@@ -116,14 +117,24 @@ function handleProfileFormSubmit(inputData) {
 }
 
 function handleAddCardFormSubmit(inputValues) {
-  const cardElement = createCard({
-    name: inputValues.title,
-    link: inputValues.description,
-  });
-  addCardForm.reset();
-  cardSection.addItem(cardElement);
-  addCardFormValidator.disableSubmitButton();
-  addCardModal.close();
+  api
+    .addCard({
+      name: inputValues.title,
+      link: inputValues.description,
+    })
+    .then((cardData) => {
+      const cardElement = createCard({
+        name: cardData.name,
+        link: cardData.link,
+      });
+      addCardForm.reset();
+      cardSection.addItem(cardElement);
+      addCardFormValidator.disableSubmitButton();
+      addCardModal.close();
+    })
+    .catch((err) => {
+      console.error("Error in adding a card:", err);
+    });
 }
 
 /* ------------------------------------------------------------------------------------------- */

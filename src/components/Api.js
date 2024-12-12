@@ -4,6 +4,20 @@ export default class Api {
     this._headers = options.headers;
   }
 
+  addCard(data) {
+    return fetch(`${this._baseUrl}/cards`, {
+      method: "POST",
+      headers: this._headers,
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    });
+  }
+
   updateUserInfo(data) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
@@ -13,7 +27,7 @@ export default class Api {
       if (res.ok) {
         return res.json();
       } else {
-        return Promise.reject(`Error: ${res.status} here`);
+        return Promise.reject(`Error: ${res.status}`);
       }
     });
   }
