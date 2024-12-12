@@ -64,6 +64,7 @@ previewCardModal.setEventListeners();
 const userInfo = new UserInfo({
   profileName: ".profile__name",
   profileJob: ".profile__subtitle",
+  profilePicture: ".profile__picture",
 });
 
 const cardSection = new Section(
@@ -97,13 +98,21 @@ function handleImageClick(data) {
 /* ------------------------------------------------------------------------------------------- */
 
 function handleProfileFormSubmit(inputData) {
-  userInfo.setUserInfo({
-    profileNameData: inputData.title,
-    profileJobData: inputData.description,
-  });
+  api
+    .updateUserInfo({
+      name: inputData.title,
+      about: inputData.description,
+    })
+    .then(() => {
+      userInfo.setUserInfo({
+        profileNameData: inputData.title,
+        profileJobData: inputData.description,
+      });
+      editModalForm.reset();
+      profileEditModal.close();
+    });
+
   //Substituted closePopup with the instantiation of PopupWithForm
-  editModalForm.reset();
-  profileEditModal.close();
 }
 
 function handleAddCardFormSubmit(inputValues) {
@@ -148,53 +157,20 @@ const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
     authorization: "524600c8-c5da-4bc8-a443-7b5815826c0b",
-    // "Content-Type": "application/json",
+    "Content-Type": "application/json",
   },
 });
 
-// api
-//   .getUserData()
-//   .then((data) => {
-//     return data.json();
-//   })
-//   .then((data) => {
-//     userInfo.setUserInfo({
-//       profileNameData: data.name,
-//       profileJobData: data.about,
-//     });
-//   })
-//   .catch((err) => console.error(`Error fetching user data: ${err}`));
-
-// api
-//   .getInitialCards()
-//   .then((res) => {
-//     if (res.ok) {
-//       return res.json();
-//     } else {
-//       return Promise.reject(`Error: ${res.status}`);
-//     }
-//   })
-//   .then((data) => {
-//     console.log(data);
-//     cardSection.renderItems(data);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
-
 api.getData().then(({ userData, cards }) => {
   console.log("Check here", userData);
+  console.log("User avatar", userData.avatar);
+  console.log("User Id", userData._id);
   console.log("Check here", cards);
 
   userInfo.setUserInfo({
     profileNameData: userData.name,
     profileJobData: userData.about,
+    profileAvatar: userData.avatar,
   });
   cardSection.renderItems(cards);
 });
-// .then(({ userInfoData, cards }) => {
-//   console.log(userInfoData, cards);
-// })
-// .catch((err) => {
-//   console.error("Failed to load user or cards", err);
-// });
