@@ -112,28 +112,11 @@ function handleDeleteCard(card) {
     api
       .deleteCard(card.getId())
       .then(() => {
-        //Right now it arrives here before closing
-        //But it won't be removing the card because it will give a 404
-        // card.handleDeleteCard();
         popupConfirmDelete.close();
       })
       .catch((err) => console.error("Error in deleting card", err));
   });
 }
-
-// function deleteCardModal(cardId, card) {
-//   popupConfirmDelete.setSubmitFunction(() => {
-// api
-//   .deleteCard(cardId)
-//   .then(() => {
-//     card.deleteCard();
-//     popupConfirmDelete.close();
-//   })
-//   .catch((err) => console.error("Error in deleting card", err));
-//   });
-
-//   popupConfirmDelete.close();
-// }
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                  Event Handlers                                             */
