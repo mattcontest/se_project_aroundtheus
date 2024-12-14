@@ -79,8 +79,9 @@ const cardSection = new Section(
   ".cards__list"
 );
 
-// const popupConfirmDelete = new PopupDelete("#delete-modal", handleDeleteCard);
-// popupConfirmDelete.setEventListeners();
+//Instantiation of PopupDelete
+const popupConfirmDelete = new PopupDelete("#delete-modal");
+popupConfirmDelete.setEventListeners();
 
 // cardSection.renderItems(initialCards);
 
@@ -92,15 +93,11 @@ function createCard(data) {
   const card = new Card(
     data,
     "#card__template",
-    handleImageClick
-    // (cardId, card) => {
-    //   deleteCardModal(cardId, card);
-    // }
+    handleImageClick,
+    handleDeleteCard
   );
   console.log("Check owner of card just created", card.owner);
-
   // console.log("Check created cardId", data._id);
-  // console.log("Check here", card.getId());
   return card.getView();
 }
 
@@ -109,18 +106,20 @@ function handleImageClick(data) {
   // console.log("Check here for id", data.id);
 }
 
-// function handleDeleteCard(card){
-//   popupConfirmDelete.open();
-//   popupConfirmDelete.setSubmitCallback( () => {
-//     api
-//     .deleteCard(card.getId())
-//     .then(() => {
-//       card.deleteCard();
-//       popupConfirmDelete.close();
-//     })
-//     .catch((err) => console.error("Error in deleting card", err));
-//   })
-// }
+function handleDeleteCard(card) {
+  popupConfirmDelete.open();
+  popupConfirmDelete.setSubmitCallback(() => {
+    api
+      .deleteCard(card.getId())
+      .then(() => {
+        //Right now it arrives here before closing
+        //But it won't be removing the card because it will give a 404
+        // card.handleDeleteCard();
+        popupConfirmDelete.close();
+      })
+      .catch((err) => console.error("Error in deleting card", err));
+  });
+}
 
 // function deleteCardModal(cardId, card) {
 //   popupConfirmDelete.setSubmitFunction(() => {
@@ -147,7 +146,7 @@ function handleProfileFormSubmit(inputData) {
       about: inputData.description,
     })
     .then((res) => {
-      console.log("Visualize _id", res._id);
+      // console.log("Visualize _id", res._id);
       userInfo.setUserInfo({
         profileNameData: inputData.title,
         profileJobData: inputData.description,
@@ -166,9 +165,11 @@ function handleAddCardFormSubmit(inputValues) {
       link: inputValues.description,
     })
     .then((cardData) => {
+      console.log("Check the cargo", cardData);
       const cardElement = createCard({
         name: cardData.name,
         link: cardData.link,
+        id: cardData._id,
       });
       addCardForm.reset();
       cardSection.addItem(cardElement);

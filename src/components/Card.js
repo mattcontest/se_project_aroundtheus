@@ -1,18 +1,19 @@
 export default class Card {
   constructor(
-    { name, link, id, owner },
+    { name, link, _id, owner },
     cardSelector,
-    handleImageClick
+    handleImageClick,
+    handleDeleteCard
     // deleteCardModal
   ) {
     this.name = name;
     this.link = link;
-    this.id = id;
+    this.id = _id;
     this.owner = owner;
     // console.log("Are you undefined", this.id);
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-    // this._deleteCardModal = deleteCardModal;
+    this._handleDeleteCard = handleDeleteCard;
   }
 
   getId() {
@@ -25,7 +26,10 @@ export default class Card {
 
     this._deleteButton.addEventListener("click", () => {
       // alert(this._name + "It's working");
-      this._handleDeleteCard();
+      //Removing card from the API
+      this._handleDeleteCard(this);
+      //Removing card from local
+      this.handleDeleteCard();
       // console.log("trying here");
       // this._deleteCardModal(this.id, this);
     });
@@ -39,6 +43,7 @@ export default class Card {
 
     this._cardImage.addEventListener("click", () => {
       this._handleImageClick({ link: this.link, name: this.name, id: this.id });
+      console.log("Also loggign this cards'id", this.getId());
     });
   }
 
@@ -49,7 +54,7 @@ export default class Card {
     this._likeButton.classList.toggle("card__button_active");
   }
 
-  _handleDeleteCard() {
+  handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }
@@ -70,6 +75,7 @@ export default class Card {
 
     this._cardImage.src = this.link;
     this._cardImage.alt = this.id;
+    // console.log("are you defined", this.id);
     this._cardTitle.textContent = this.name;
     // console.log("CardId in getview", this.getId());
 
