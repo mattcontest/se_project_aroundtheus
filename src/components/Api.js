@@ -4,6 +4,20 @@ export default class Api {
     this._headers = options.headers;
   }
 
+  deleteCard(cardId) {
+    return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      method: "DELETE",
+      headers: this._headers,
+      body: JSON.stringify(data),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        return Promise.reject(`Error: ${res.status}`);
+      }
+    });
+  }
+
   addCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",

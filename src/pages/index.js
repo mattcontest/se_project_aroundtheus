@@ -43,6 +43,7 @@ import {
   cardTemplate,
   cardList,
 } from "../utils/constants.js";
+import PopupDelete from "../components/PopupDelete.js";
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Instantiating Classes                                            */
@@ -78,6 +79,9 @@ const cardSection = new Section(
   ".cards__list"
 );
 
+// const popupConfirmDelete = new PopupDelete("#delete-modal", handleDeleteCard);
+// popupConfirmDelete.setEventListeners();
+
 // cardSection.renderItems(initialCards);
 
 /* ------------------------------------------------------------------------------------------- */
@@ -85,13 +89,52 @@ const cardSection = new Section(
 /* ------------------------------------------------------------------------------------------- */
 
 function createCard(data) {
-  const card = new Card(data, "#card__template", handleImageClick);
+  const card = new Card(
+    data,
+    "#card__template",
+    handleImageClick
+    // (cardId, card) => {
+    //   deleteCardModal(cardId, card);
+    // }
+  );
+  console.log("Check owner of card just created", card.owner);
+
+  // console.log("Check created cardId", data._id);
+  // console.log("Check here", card.getId());
   return card.getView();
 }
 
 function handleImageClick(data) {
   previewCardModal.open(data);
+  // console.log("Check here for id", data.id);
 }
+
+// function handleDeleteCard(card){
+//   popupConfirmDelete.open();
+//   popupConfirmDelete.setSubmitCallback( () => {
+//     api
+//     .deleteCard(card.getId())
+//     .then(() => {
+//       card.deleteCard();
+//       popupConfirmDelete.close();
+//     })
+//     .catch((err) => console.error("Error in deleting card", err));
+//   })
+// }
+
+// function deleteCardModal(cardId, card) {
+//   popupConfirmDelete.setSubmitFunction(() => {
+// api
+//   .deleteCard(cardId)
+//   .then(() => {
+//     card.deleteCard();
+//     popupConfirmDelete.close();
+//   })
+//   .catch((err) => console.error("Error in deleting card", err));
+//   });
+
+//   popupConfirmDelete.close();
+// }
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                  Event Handlers                                             */
@@ -173,10 +216,10 @@ const api = new Api({
 });
 
 api.getData().then(({ userData, cards }) => {
-  console.log("Check here", userData);
-  console.log("User avatar", userData.avatar);
-  console.log("User Id", userData._id);
-  console.log("Check here", cards);
+  // console.log("Check here", userData);
+  // console.log("User avatar", userData.avatar);
+  // console.log("User Id", userData._id);
+  // console.log("Check here", cards);
 
   userInfo.setUserInfo({
     profileNameData: userData.name,
