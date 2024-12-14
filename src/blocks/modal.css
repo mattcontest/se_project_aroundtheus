@@ -63,6 +63,16 @@
   /* opacity: 1; */
 }
 
+.delete__container {
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  max-width: 430px;
+  min-height: 180px;
+}
+
 .modal__container {
   background-color: #fff;
   margin: auto;
@@ -71,6 +81,18 @@
   position: relative;
   max-width: 430px;
   min-height: 330px;
+}
+
+.modal__form_delete {
+  /* margin-bottom: 0 !important;
+  margin-right: 36px !important;
+  margin-bottom: 38px !important; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-bottom: 0;
+  width: 358px;
 }
 
 .modal__form {
@@ -120,6 +142,10 @@
   border: none;
   background-color: none;
   position: absolute;
+}
+
+.modal__heading_close {
+  margin-bottom: 36px;
 }
 
 .modal__close:hover {
