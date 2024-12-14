@@ -9,16 +9,4 @@ export default class PopupDelete extends Popup {
     //   ".modal__form_delete"
     // );
   }
-
-  setEventListeners() {
-    super.setEventListeners();
-    this.popupElement.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this.handleSubmit();
-    });
-  }
-
-  setSubmitCallback(action) {
-    this.handleSubmit = action;
-  }
 }
