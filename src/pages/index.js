@@ -94,7 +94,9 @@ function createCard(data) {
     data,
     "#card__template",
     handleImageClick,
-    handleDeleteCard
+    handleDeleteCard,
+    handleLikeCard,
+    handleRemoveLikeCard
   );
   console.log("Check owner of card just created", card.owner);
   // console.log("Check created cardId", data._id);
@@ -106,17 +108,43 @@ function handleImageClick(data) {
   // console.log("Check here for id", data.id);
 }
 
+function handleRemoveLikeCard(card) {
+  api.removeLikeCard(card.getId()).then(() => {
+    console.log("Removed Like", card.getId());
+    card._handleLikeIcon();
+    card.likeStatus = false;
+  });
+}
+
+function handleLikeCard(card) {
+  api.likeCard(card.getId()).then(() => {
+    card._handleLikeIcon();
+    card.likestatus = True;
+    console.log("Liked", card.getId());
+  });
+}
+
 function handleDeleteCard(card) {
   popupConfirmDelete.open();
   popupConfirmDelete.setSubmitCallback(() => {
     api
       .deleteCard(card.getId())
       .then(() => {
+        card.handlerDeleteCard();
+        console.log("Deleted", card.getId());
         popupConfirmDelete.close();
+        // card = null;
       })
+      // .then(() => {
+      //   console.log("Deleted, do you still have access?", card.getId());
+      // })
       .catch((err) => console.error("Error in deleting card", err));
   });
 }
+
+// function handleLikeCard(card){
+//   api.likeCard(card.getId())
+// }
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                  Event Handlers                                             */
@@ -152,7 +180,7 @@ function handleAddCardFormSubmit(inputValues) {
       const cardElement = createCard({
         name: cardData.name,
         link: cardData.link,
-        id: cardData._id,
+        _id: cardData._id,
       });
       addCardForm.reset();
       cardSection.addItem(cardElement);

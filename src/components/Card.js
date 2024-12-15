@@ -1,23 +1,40 @@
 export default class Card {
   constructor(
-    { name, link, _id, owner },
+    { name, link, _id, owner, isLiked },
     cardSelector,
     handleImageClick,
-    handleDeleteCard
+    handleDeleteCard,
+    handleLikeCard,
+    handleRemoveLikeCard
     // deleteCardModal
   ) {
     this.name = name;
     this.link = link;
     this.id = _id;
     this.owner = owner;
+    this.likeStatus = isLiked;
     // console.log("Are you undefined", this.id);
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
     this._handleDeleteCard = handleDeleteCard;
+    this._handleLikeCard = handleLikeCard;
+    this._handleRemoveLikeCard = handleRemoveLikeCard;
   }
 
   getId() {
     return this.id;
+  }
+
+  getLikeStatus() {
+    return this.likeStatus;
+  }
+
+  _setLikeState() {
+    if (this.likeStatus == true) {
+      this._likeButton.classList.add("card__button_active");
+    } else {
+      this._likeButton.classList.remove("card__button_active");
+    }
   }
 
   _setEventListeners() {
@@ -29,16 +46,16 @@ export default class Card {
       //Removing card from the API
       this._handleDeleteCard(this);
       //Removing card from local
-      this.handleDeleteCard();
-      // console.log("trying here");
-      // this._deleteCardModal(this.id, this);
+      // this.handleDeleteCard();
     });
 
-    // this._cardElement
-    //   .querySelector(".card__button")
-
     this._likeButton.addEventListener("click", () => {
-      this._handleLikeIcon();
+      if (this.likeStatus === true) {
+        this._handleRemoveLikeCard(this);
+      } else {
+        this._handleLikeCard(this);
+      }
+      // this._handleLikeIcon();
     });
 
     this._cardImage.addEventListener("click", () => {
@@ -54,7 +71,8 @@ export default class Card {
     this._likeButton.classList.toggle("card__button_active");
   }
 
-  handleDeleteCard() {
+  handlerDeleteCard() {
+    console.log("Just to be sure, it's form here");
     this._cardElement.remove();
     this._cardElement = null;
   }
@@ -85,6 +103,7 @@ export default class Card {
     //get the card view
     //set event listeners
     this._setEventListeners();
+    this._setLikeState();
     //retur the card
 
     return this._cardElement;
