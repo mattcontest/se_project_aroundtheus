@@ -17,11 +17,14 @@
 
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau"
-            class="profile__picture"
-          />
+          <div class="profile__picture-container">
+            <button class="profile__picture_edit-icon" type="button"></button>
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="Jacques Cousteau"
+              class="profile__picture"
+            />
+          </div>
 
           <div class="profile__container">
             <div class="profile__container-edit-btn">

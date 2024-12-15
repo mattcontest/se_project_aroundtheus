@@ -198,6 +198,19 @@ function handleAddCardFormSubmit(inputValues) {
     });
 }
 
+//Handle Avatar Submit Work in progress
+function handleAvatarSubmit(data) {
+  api
+    .updateProfilePicture()
+    .then(() => {
+      //In case of it not working check in UserInfo
+      userInfo.profilePicture = data;
+    })
+    .catch((err) => {
+      console.error("Error in updating the profile picture", err);
+    });
+}
+
 /* ------------------------------------------------------------------------------------------- */
 /*                                   Event Listeners                                           */
 /* ------------------------------------------------------------------------------------------- */
