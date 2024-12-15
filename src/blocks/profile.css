@@ -31,13 +31,12 @@
 }
 
 .profile__picture-container {
-  /* background-color: aliceblue; */
   display: flex;
   align-items: center;
   position: relative;
   height: 120px;
   width: 120px;
-  border: solid red;
+  /* border: solid red; */
 }
 
 .profile__picture_edit-icon {
@@ -53,6 +52,12 @@
 
 .profile__picture-container:hover .profile__picture_edit-icon {
   display: block;
+}
+
+.profile__picture-container:hover .profile__picture {
+  opacity: 0.6;
+  /* background-color: aliceblue; */
+  /* border: solid red; */
 }
 
 .profile__name {

@@ -42,6 +42,7 @@ import {
   profileEditForm,
   cardTemplate,
   cardList,
+  profileEditAvatar,
 } from "../utils/constants.js";
 import PopupDelete from "../components/PopupDelete.js";
 
@@ -233,6 +234,10 @@ const editCardFormValidator = new FormValidator(config, editModalForm);
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+profileEditAvatar.addEventListener("click", () => {
+  console.log("Testing the button");
+});
 
 /* ------------------------------------------------------------------------------------------- */
 /*                                   API Calls                                           */

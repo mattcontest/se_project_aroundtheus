@@ -77,6 +77,8 @@ const cardTemplate =
 
 const cardList = document.querySelector(".cards__list");
 
+const profileEditAvatar = document.querySelector(".profile__picture_edit-icon");
+
 export {
   profileName,
   profileEditButton,
@@ -105,4 +107,5 @@ export {
   cardImageForm,
   cardTemplate,
   cardList,
+  profileEditAvatar,
 };
