@@ -30,12 +30,20 @@ export default class Card {
   }
 
   _setLikeState() {
-    if (this.likeStatus == true) {
+    if (this.likeStatus) {
       this._likeButton.classList.add("card__button_active");
-    } else {
+    } else if (!this.likeStatus) {
       this._likeButton.classList.remove("card__button_active");
     }
   }
+
+  // likeCard() {
+  //   this._likeButton.classList.add("card__button_active");
+  // }
+
+  // removeLikeCard() {
+  //   this._likeButton.classList.remove("card__button_active");
+  // }
 
   _setEventListeners() {
     // this._cardElement

@@ -109,17 +109,23 @@ function handleImageClick(data) {
 }
 
 function handleRemoveLikeCard(card) {
-  api.removeLikeCard(card.getId()).then(() => {
+  api.removeLikeCard(card.getId()).then((response) => {
+    console.log("Api response", response);
+    card.likeStatus = response.isLiked;
+    card._setLikeState();
+    // card._handleLikeIcon();
+    // card.removeLikeCard();
     console.log("Removed Like", card.getId());
-    card._handleLikeIcon();
-    card.likeStatus = false;
   });
 }
 
 function handleLikeCard(card) {
-  api.likeCard(card.getId()).then(() => {
-    card._handleLikeIcon();
-    card.likestatus = True;
+  api.likeCard(card.getId()).then((response) => {
+    console.log("Api resposnse", response);
+    card.likeStatus = response.isLiked;
+    // card._handleLikeIcon();
+    // card.likeCard();
+    card._setLikeState();
     console.log("Liked", card.getId());
   });
 }
