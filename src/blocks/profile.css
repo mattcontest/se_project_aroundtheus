@@ -43,15 +43,21 @@
   position: absolute;
   left: 47px;
   top: 47px;
-  display: none;
+  /* display: none; */
+  visibility: hidden;
+  pointer-events: none;
   width: 26px;
   height: 26px;
   background: transparent url("../images/edit-profile.svg") center no-repeat;
   border: none;
+  z-index: 888;
 }
 
 .profile__picture-container:hover .profile__picture_edit-icon {
-  display: block;
+  /* display: 1lock; */
+  /* opacity: 0.6; */
+  pointer-events: auto;
+  visibility: visible;
 }
 
 .profile__picture-container:hover .profile__picture {

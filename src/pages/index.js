@@ -80,9 +80,12 @@ const cardSection = new Section(
   ".cards__list"
 );
 
-//Instantiation of PopupDelete
+//Instantiation of PopupDelete for deleting Card
 const popupConfirmDelete = new PopupDelete("#delete-modal");
 popupConfirmDelete.setEventListeners();
+
+const popupEditAvatar = new PopupWithForm("#avatar-edit", handleAvatarSubmit);
+popupEditAvatar.setEventListeners();
 
 // cardSection.renderItems(initialCards);
 
@@ -140,11 +143,7 @@ function handleDeleteCard(card) {
         card.handlerDeleteCard();
         console.log("Deleted", card.getId());
         popupConfirmDelete.close();
-        // card = null;
       })
-      // .then(() => {
-      //   console.log("Deleted, do you still have access?", card.getId());
-      // })
       .catch((err) => console.error("Error in deleting card", err));
   });
 }
@@ -201,11 +200,17 @@ function handleAddCardFormSubmit(inputValues) {
 
 //Handle Avatar Submit Work in progress
 function handleAvatarSubmit(data) {
+  // const avatar = data.link;
   api
-    .updateProfilePicture()
-    .then(() => {
+    .updateProfilePicture({
+      avatar: data.avatar_link,
+    })
+    .then((data) => {
       //In case of it not working check in UserInfo
-      userInfo.profilePicture = data;
+      // userInfo.profilePicture = data;
+      console.log("That's the data from the server", data);
+      console.log("Just checking", data.avatar);
+      userInfo.setAvatar(data.avatar);
     })
     .catch((err) => {
       console.error("Error in updating the profile picture", err);
@@ -236,7 +241,7 @@ addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
 
 profileEditAvatar.addEventListener("click", () => {
-  console.log("Testing the button");
+  popupEditAvatar.open();
 });
 
 /* ------------------------------------------------------------------------------------------- */

@@ -13,6 +13,10 @@ export default class UserInfo {
     };
   }
 
+  setAvatar(link) {
+    this.avatar.src = link;
+  }
+
   //In case change later the avatar assignment
   //Given we are on the setter this might cause a problem in case no avatar data
   //is readily available to get assigned

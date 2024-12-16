@@ -131,8 +131,26 @@
       <div class="delete__container">
         <button class="modal__close" type="button"></button>
         <h2 class="modal__heading modal__heading_close">Are you sure?</h2>
-        <form class="modal__form_delete" id="modal-form">
+        <form class="modal__form modal__form_delete" id="modal__form">
           <button class="modal__btn yes__delete-btn" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Profile Avatar -->
+    <div class="modal" id="avatar-edit">
+      <div class="avatar__edit_container">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading">Change Profile Picutre</h2>
+        <form class="modal__form modal__form_avatar" id="modal__form">
+          <input
+            type="url"
+            class="modal__input"
+            placeholder="Avatar URL"
+            name="avatar_link"
+            required
+          />
+          <button class="modal__btn" type="submit">Save</button>
         </form>
       </div>
     </div>
