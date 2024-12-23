@@ -176,6 +176,7 @@ function handleProfileFormSubmit(inputData) {
 }
 
 function handleAddCardFormSubmit(inputValues) {
+  addCardModal.setLoading(true);
   api
     .addCard({
       name: inputValues.title,
@@ -193,6 +194,7 @@ function handleAddCardFormSubmit(inputValues) {
       addCardFormValidator.disableSubmitButton();
       addCardModal.close();
     })
+    .finally(() => addCardModal.setLoading(false))
     .catch((err) => {
       console.error("Error in adding a card:", err);
     });
@@ -257,7 +259,7 @@ const api = new Api({
 });
 
 api.getData().then(({ userData, cards }) => {
-  // console.log("Check here", userData);
+  console.log("Check here", userData);
   // console.log("User avatar", userData.avatar);
   // console.log("User Id", userData._id);
   // console.log("Check here", cards);

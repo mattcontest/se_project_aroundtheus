@@ -8,6 +8,8 @@ export default class PopupWithForm extends Popup {
     console.log("Logging this.popupForm form", this.popupForm);
     // this.button = this.popupForm.querySelector(".modal__btn_type_add");
     this.hanldeFormSubmit = handleFormSubmit;
+    this.submitButton = this.popupForm.querySelector(".modal__btn");
+    this.submitButtonTextContent = this.submitButton.textContent;
   }
 
   _getInputValues() {
@@ -20,10 +22,37 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
+  setLoading(isLoading) {
+    if (isLoading) {
+      this.submitButton.textContent = "Saving...";
+      this.submitButton.disabled = true;
+    } else {
+      this.submitButton.textContent = this.submitButtonTextContent;
+      this.submitButton.disabled = false;
+    }
+  }
+
   setEventListeners() {
     //With super we are calling the parent class setEventListeners when available
     // console.log("PopupWithForm.setEventListeners called");
+
     super.setEventListeners();
+
+    const submitButton = this.popupForm.querySelector(".modal__btn");
+    submitButton.addEventListener("click", (e) => {
+      // console.log(
+      //   `${this.popupForm.classList.value}, ${submitButton.classList.value}`
+      // );
+
+      // console.log(
+      //   "This submit btn",
+      //   submitButton,
+      //   "This formId",
+      //   this.popupForm
+      // );
+
+      this.setLoading();
+    });
 
     this.popupForm.addEventListener("submit", (e) => {
       // console.log("Addind this for  ->", this.popupElement);
