@@ -205,6 +205,8 @@ function handleAddCardFormSubmit(inputValues) {
 //Handle Avatar Submit Work in progress
 function handleAvatarSubmit(data) {
   // const avatar = data.link;
+  popupEditAvatar.setLoading(true);
+
   api
     .updateProfilePicture({
       avatar: data.avatar_link,
@@ -216,6 +218,7 @@ function handleAvatarSubmit(data) {
       console.log("Just checking", data.avatar);
       userInfo.setAvatar(data.avatar);
     })
+    .finally(() => popupEditAvatar.setLoading(false))
     .catch((err) => {
       console.error("Error in updating the profile picture", err);
     });
