@@ -157,6 +157,7 @@ function handleDeleteCard(card) {
 /* ------------------------------------------------------------------------------------------- */
 
 function handleProfileFormSubmit(inputData) {
+  profileEditModal.setLoading(true);
   api
     .updateUserInfo({
       name: inputData.title,
@@ -170,7 +171,8 @@ function handleProfileFormSubmit(inputData) {
       });
       editModalForm.reset();
       profileEditModal.close();
-    });
+    })
+    .finally(() => profileEditModal.setLoading(false));
 
   //Substituted closePopup with the instantiation of PopupWithForm
 }
