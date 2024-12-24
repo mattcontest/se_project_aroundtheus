@@ -38,22 +38,6 @@ export default class PopupWithForm extends Popup {
 
     super.setEventListeners();
 
-    const submitButton = this.popupForm.querySelector(".modal__btn");
-    submitButton.addEventListener("click", (e) => {
-      // console.log(
-      //   `${this.popupForm.classList.value}, ${submitButton.classList.value}`
-      // );
-
-      // console.log(
-      //   "This submit btn",
-      //   submitButton,
-      //   "This formId",
-      //   this.popupForm
-      // );
-
-      this.setLoading();
-    });
-
     this.popupForm.addEventListener("submit", (e) => {
       // console.log("Addind this for  ->", this.popupElement);
       e.preventDefault();

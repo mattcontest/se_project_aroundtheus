@@ -196,10 +196,10 @@ function handleAddCardFormSubmit(inputValues) {
       addCardFormValidator.disableSubmitButton();
       addCardModal.close();
     })
-    .finally(() => addCardModal.setLoading(false))
     .catch((err) => {
       console.error("Error in adding a card:", err);
-    });
+    })
+    .finally(() => addCardModal.setLoading(false));
 }
 
 //Handle Avatar Submit Work in progress
@@ -218,10 +218,10 @@ function handleAvatarSubmit(data) {
       console.log("Just checking", data.avatar);
       userInfo.setAvatar(data.avatar);
     })
-    .finally(() => popupEditAvatar.setLoading(false))
     .catch((err) => {
       console.error("Error in updating the profile picture", err);
-    });
+    })
+    .finally(() => popupEditAvatar.setLoading(false));
 }
 
 /* ------------------------------------------------------------------------------------------- */
