@@ -11,52 +11,28 @@ export default class Api {
       body: JSON.stringify({
         avatar: avatar,
       }),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status} `);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   removeLikeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   addCard(data) {
@@ -64,13 +40,7 @@ export default class Api {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   updateUserInfo(data) {
@@ -78,44 +48,43 @@ export default class Api {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify(data),
-    }).then((res) => {
-      if (res.ok) {
-        return res.json();
-      } else {
-        return Promise.reject(`Error: ${res.status}`);
-      }
-    });
+    }).then(this._checkResponse);
   }
 
   getUserData() {
     return fetch(`${this._baseUrl}/users/me`, {
       headers: this._headers,
       method: "GET",
-    });
+    }).then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
       headers: this._headers,
       method: "GET",
-    });
+    }).then(this._checkResponse);
   }
 
   getData() {
+    // return Promise.all([this.getUserData(), this.getInitialCards()]).then(
+    //   ([userData, cards]) => ({ userData, cards })
+    // );
     return Promise.all([this.getUserData(), this.getInitialCards()])
       .then(([userData, cards]) => {
-        if (!userData.ok || !cards.ok) {
-          return Promise.reject(
-            `Error ${!userData.ok ? userData.status : cards.status} check`
-          );
-        } else {
-          return Promise.all([userData.json(), cards.json()]);
-        }
+        return Promise.all([userData, cards]);
       })
       .then(([userData, cards]) => {
         return { userData, cards };
-      })
-      .catch((err) => Promise.reject(`Error finding data: ${err}`));
+      });
+  }
+
+  _checkResponse(res) {
+    console.log("Check the response", res);
+    if (res.ok) {
+      return res.json();
+    } else {
+      return Promise.reject(`Error ${res.status}`);
+    }
   }
 }
 
@@ -158,3 +127,22 @@ export default class Api {
 //   //   .catch((err) => {
 //   //     console.log(err);
 //   //   });
+
+// getData() {
+//   // return Promise.all([this.getUserData(), this.getInitialCards()]).then(
+//   //   ([userData, cards]) => ({ userData, cards })
+//   // );
+//   return Promise.all([this.getUserData(), this.getInitialCards()])
+//     .then(([userData, cards]) => {
+//       if (!userData.ok || !cards.ok) {
+//         return Promise.reject(
+//           `Error ${!userData.ok ? userData.status : cards.status} check`
+//         );
+//       } else {
+//         return Promise.all([userData.json(), cards.json()]);
+//       }
+//     })
+//     .then(([userData, cards]) => {
+//       return { userData, cards };
+//     });
+// }
