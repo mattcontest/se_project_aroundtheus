@@ -59,7 +59,7 @@ export default class Api {
   }
 
   getInitialCards() {
-    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+    return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: "GET",
     }).then(this._checkResponse);

@@ -157,7 +157,7 @@ function handleDeleteCard(card) {
 /* ------------------------------------------------------------------------------------------- */
 
 function handleProfileFormSubmit(inputData) {
-  profileEditModal.setLoading(true);
+  profileEditModal.renderLoading(true);
   api
     .updateUserInfo({
       name: inputData.title,
@@ -172,13 +172,13 @@ function handleProfileFormSubmit(inputData) {
       editModalForm.reset();
       profileEditModal.close();
     })
-    .finally(() => profileEditModal.setLoading(false));
+    .finally(() => profileEditModal.renderLoading(false));
 
   //Substituted closePopup with the instantiation of PopupWithForm
 }
 
 function handleAddCardFormSubmit(inputValues) {
-  addCardModal.setLoading(true);
+  addCardModal.renderLoading(true);
   api
     .addCard({
       name: inputValues.title,
@@ -199,13 +199,13 @@ function handleAddCardFormSubmit(inputValues) {
     .catch((err) => {
       console.error("Error in adding a card:", err);
     })
-    .finally(() => addCardModal.setLoading(false));
+    .finally(() => addCardModal.renderLoading(false));
 }
 
 //Handle Avatar Submit Work in progress
 function handleAvatarSubmit(data) {
   // const avatar = data.link;
-  popupEditAvatar.setLoading(true);
+  popupEditAvatar.renderLoading(true);
 
   api
     .updateProfilePicture({
@@ -221,7 +221,7 @@ function handleAvatarSubmit(data) {
     .catch((err) => {
       console.error("Error in updating the profile picture", err);
     })
-    .finally(() => popupEditAvatar.setLoading(false));
+    .finally(() => popupEditAvatar.renderLoading(false));
 }
 
 /* ------------------------------------------------------------------------------------------- */

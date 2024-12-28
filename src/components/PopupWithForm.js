@@ -12,6 +12,14 @@ export default class PopupWithForm extends Popup {
     this.submitButtonTextContent = this.submitButton.textContent;
   }
 
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this.submitButton.textContent = loadingText;
+    } else {
+      this.submitButton.textContent = this.submitButtonTextContent;
+    }
+  }
+
   _getInputValues() {
     const inputList = this.popupForm.querySelectorAll(".modal__input");
     const formValues = {};
