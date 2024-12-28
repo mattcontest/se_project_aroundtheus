@@ -30,6 +30,13 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
+  setInputs(data) {
+    const inputList = this.popupForm.querySelectorAll(".modal__input");
+    inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+
   setLoading(isLoading) {
     if (isLoading) {
       this.submitButton.textContent = "Saving...";
@@ -51,14 +58,14 @@ export default class PopupWithForm extends Popup {
       e.preventDefault();
       //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
       //Passing e to the handleFormSubmit
-      console.log(
-        "Check the element you are about to submit",
-        this._getInputValues()
-      );
+      // console.log(
+      //   "Check the element you are about to submit",
+      //   this._getInputValues()
+      // );
       this.hanldeFormSubmit(this._getInputValues());
 
-      this.popupForm.reset();
-      this.close();
+      // this.popupForm.reset();
+      // this.close();
 
       // this.hanldeFormSubmit(e);
     });

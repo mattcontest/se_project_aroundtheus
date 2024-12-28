@@ -230,8 +230,12 @@ function handleAvatarSubmit(data) {
 
 profileEditButton.addEventListener("click", () => {
   const { name, description } = userInfo.getUserInfo();
-  profileNameInput.value = name;
-  profileSubtitleInput.value = description;
+  // profileNameInput.value = name;
+  // profileSubtitleInput.value = description;
+  profileEditModal.setInputs({
+    title: name,
+    description: description,
+  });
   editCardFormValidator.resetValidation();
   editCardFormValidator.disableSubmitButton();
   profileEditModal.open();
