@@ -43,6 +43,7 @@ import {
   cardTemplate,
   cardList,
   profileEditAvatar,
+  editAvatarForm,
 } from "../utils/constants.js";
 import PopupDelete from "../components/PopupDelete.js";
 
@@ -116,7 +117,7 @@ function handleRemoveLikeCard(card) {
   api.removeLikeCard(card.getId()).then((response) => {
     console.log("Api response", response);
     card.likeStatus = response.isLiked;
-    card._setLikeState();
+    card.setLikeState();
     // card._handleLikeIcon();
     // card.removeLikeCard();
     console.log("Removed Like", card.getId());
@@ -129,7 +130,7 @@ function handleLikeCard(card) {
     card.likeStatus = response.isLiked;
     // card._handleLikeIcon();
     // card.likeCard();
-    card._setLikeState();
+    card.setLikeState();
     console.log("Liked", card.getId());
   });
 }
@@ -164,10 +165,14 @@ function handleProfileFormSubmit(inputData) {
       about: inputData.description,
     })
     .then((res) => {
-      // console.log("Visualize _id", res._id);
+      console.log("Visalize res", res);
+      // console.log("Visualize res.title", res._id);
+      // console.log("Visualize res", res._id);
       userInfo.setUserInfo({
-        profileNameData: inputData.title,
-        profileJobData: inputData.description,
+        // profileNameData: inputData.title,
+        profileNameData: res.name,
+        // profileJobData: inputData.description,
+        profileJobData: res.about,
       });
       editModalForm.reset();
       profileEditModal.close();
@@ -217,6 +222,7 @@ function handleAvatarSubmit(data) {
       console.log("That's the data from the server", data);
       console.log("Just checking", data.avatar);
       userInfo.setAvatar(data.avatar);
+      popupEditAvatar.close();
     })
     .catch((err) => {
       console.error("Error in updating the profile picture", err);
@@ -247,9 +253,14 @@ addButton.addEventListener("click", () => {
 
 const addCardFormValidator = new FormValidator(config, addCardForm);
 const editCardFormValidator = new FormValidator(config, editModalForm);
+const editAvatarFormValidator = new FormValidator(config, editAvatarForm);
+
+//Enabling Form Validators
 
 addCardFormValidator.enableValidation();
 editCardFormValidator.enableValidation();
+
+editAvatarFormValidator.enableValidation();
 
 profileEditAvatar.addEventListener("click", () => {
   popupEditAvatar.open();

@@ -70,6 +70,8 @@ const addCardButton = document.querySelector(".modal__btn_type_add");
 const addCardForm = document.querySelector(".modal__form_card");
 const cardTitleForm = addModal.querySelector(".modal__input_type_title");
 const cardImageForm = addModal.querySelector(".modal__input_type_image");
+// const editAvatarForm = document.querySelector(".modal__form_avatar");
+const editAvatarForm = document.querySelector(".modal__form_avatar");
 
 const profileEditForm = document.forms["profile-form"];
 const cardTemplate =
@@ -108,4 +110,5 @@ export {
   cardTemplate,
   cardList,
   profileEditAvatar,
+  editAvatarForm,
 };

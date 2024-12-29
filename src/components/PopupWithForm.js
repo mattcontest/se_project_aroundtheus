@@ -47,6 +47,10 @@ export default class PopupWithForm extends Popup {
     }
   }
 
+  getForm() {
+    return this.popupForm;
+  }
+
   setEventListeners() {
     //With super we are calling the parent class setEventListeners when available
     // console.log("PopupWithForm.setEventListeners called");

@@ -145,11 +145,14 @@
         <form class="modal__form modal__form_avatar" id="modal__form">
           <input
             type="url"
-            class="modal__input"
+            class="modal__input modal__form_edit-avatar"
             placeholder="Avatar URL"
             name="avatar_link"
+            id="modal__form_avatar"
             required
           />
+          <span class="modal__error" id="modal__form_avatar-error"> </span>
+
           <button class="modal__btn" type="submit">Save</button>
         </form>
       </div>

@@ -24,7 +24,8 @@ export default class UserInfo {
     this.name.textContent = profileNameData;
     this.job.textContent = profileJobData;
     if (profileAvatar) {
-      this.avatar.src = profileAvatar;
+      // this.avatar.src = profileAvatar;
+      this.setAvatar(profileAvatar);
     }
   }
 }

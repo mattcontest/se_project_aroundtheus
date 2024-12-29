@@ -29,7 +29,7 @@ export default class Card {
     return this.likeStatus;
   }
 
-  _setLikeState() {
+  setLikeState() {
     if (this.likeStatus) {
       this._likeButton.classList.add("card__button_active");
     } else if (!this.likeStatus) {
@@ -111,7 +111,7 @@ export default class Card {
     //get the card view
     //set event listeners
     this._setEventListeners();
-    this._setLikeState();
+    this.setLikeState();
     //retur the card
 
     return this._cardElement;
