@@ -114,25 +114,31 @@ function handleImageClick(data) {
 }
 
 function handleRemoveLikeCard(card) {
-  api.removeLikeCard(card.getId()).then((response) => {
-    console.log("Api response", response);
-    card.likeStatus = response.isLiked;
-    card.setLikeState();
-    // card._handleLikeIcon();
-    // card.removeLikeCard();
-    console.log("Removed Like", card.getId());
-  });
+  api
+    .removeLikeCard(card.getId())
+    .then((response) => {
+      console.log("Api response", response);
+      card.likeStatus = response.isLiked;
+      card.setLikeState();
+      // card._handleLikeIcon();
+      // card.removeLikeCard();
+      console.log("Removed Like", card.getId());
+    })
+    .catch((err) => console.log("Error in removing a Like", err));
 }
 
 function handleLikeCard(card) {
-  api.likeCard(card.getId()).then((response) => {
-    console.log("Api resposnse", response);
-    card.likeStatus = response.isLiked;
-    // card._handleLikeIcon();
-    // card.likeCard();
-    card.setLikeState();
-    console.log("Liked", card.getId());
-  });
+  api
+    .likeCard(card.getId())
+    .then((response) => {
+      console.log("Api resposnse", response);
+      card.likeStatus = response.isLiked;
+      // card._handleLikeIcon();
+      // card.likeCard();
+      card.setLikeState();
+      console.log("Liked", card.getId());
+    })
+    .catch((err) => console.log("Error in Liking a card", err));
 }
 
 function handleDeleteCard(card) {
