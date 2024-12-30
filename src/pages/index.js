@@ -183,6 +183,9 @@ function handleProfileFormSubmit(inputData) {
       editModalForm.reset();
       profileEditModal.close();
     })
+    .catch((err) => {
+      console.error("Error in submitting Profile form", err);
+    })
     .finally(() => profileEditModal.renderLoading(false));
 
   //Substituted closePopup with the instantiation of PopupWithForm
@@ -284,16 +287,21 @@ const api = new Api({
   },
 });
 
-api.getData().then(({ userData, cards }) => {
-  console.log("Check here", userData);
-  // console.log("User avatar", userData.avatar);
-  // console.log("User Id", userData._id);
-  // console.log("Check here", cards);
+api
+  .getData()
+  .then(({ userData, cards }) => {
+    console.log("Check here", userData);
+    // console.log("User avatar", userData.avatar);
+    // console.log("User Id", userData._id);
+    // console.log("Check here", cards);
 
-  userInfo.setUserInfo({
-    profileNameData: userData.name,
-    profileJobData: userData.about,
-    profileAvatar: userData.avatar,
+    userInfo.setUserInfo({
+      profileNameData: userData.name,
+      profileJobData: userData.about,
+      profileAvatar: userData.avatar,
+    });
+    cardSection.renderItems(cards);
+  })
+  .catch((err) => {
+    console.error("Error in retrieving Data", err);
   });
-  cardSection.renderItems(cards);
-});
