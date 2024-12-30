@@ -50,6 +50,10 @@
   top: calc(54%);
 }
 
+#modal__form_avatar-error {
+  top: calc(49%);
+}
+
 #description__form-edit-error {
   top: calc(54%);
 }
