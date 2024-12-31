@@ -70,12 +70,16 @@ const addCardButton = document.querySelector(".modal__btn_type_add");
 const addCardForm = document.querySelector(".modal__form_card");
 const cardTitleForm = addModal.querySelector(".modal__input_type_title");
 const cardImageForm = addModal.querySelector(".modal__input_type_image");
+// const editAvatarForm = document.querySelector(".modal__form_avatar");
+const editAvatarForm = document.querySelector(".modal__form_avatar");
 
 const profileEditForm = document.forms["profile-form"];
 const cardTemplate =
   document.querySelector("#card__template").content.firstElementChild;
 
 const cardList = document.querySelector(".cards__list");
+
+const profileEditAvatar = document.querySelector(".profile__picture_edit-icon");
 
 export {
   profileName,
@@ -105,4 +109,6 @@ export {
   cardImageForm,
   cardTemplate,
   cardList,
+  profileEditAvatar,
+  editAvatarForm,
 };

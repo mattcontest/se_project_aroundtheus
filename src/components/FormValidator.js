@@ -22,6 +22,9 @@ export default class FormValidator {
     // console.log("I'm adding", this._inputErrorClass);
     // console.log("I'm also adding", errorMessage);
     inputEl.classList.add(this._inputErrorClass);
+    console.log("check here errorMessage:", errorMessage);
+    console.log("check here errorMessage:", `${inputEl.id}-error`);
+    console.log("check here aswell", inputEl.validationMessage);
     errorMessage.textContent = inputEl.validationMessage;
     // errorMessage.classList.add(this._errorMessage);
   }
@@ -79,6 +82,7 @@ export default class FormValidator {
   }
 
   _checkInputValidity(inputEl) {
+    console.log("Checking inputEl", inputEl);
     // console.log("It loggs till _checkInputValidity");
     if (!inputEl.validity.valid) {
       this._showInputError(inputEl);
@@ -88,6 +92,7 @@ export default class FormValidator {
   }
 
   enableValidation() {
+    console.log("Form being validated:", this._form);
     this._setEventListeners();
   }
 }

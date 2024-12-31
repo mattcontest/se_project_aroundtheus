@@ -4,16 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the US</title>
-    <!-- <link rel="stylesheet" href="./pages/index.css" /> -->
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
-        <!-- <img
-          src="./images/logo.svg"
-          alt="Triple Ten Logo, is clearly a person and definitely not an object"
-          class="header__logo"
-        /> -->
         <img
           src="<%=require('./images/logo.svg')%>"
           alt="Triple Ten Logo, is clearly a person and definitely not an object"
@@ -22,37 +16,17 @@
       </header>
 
       <main class="content">
-        <!-- For the reviewer: -->
-        <!-- Feedback addressed; some comments were puzzling. Please clarify if further action is needed. -->
-        <!-- "Please note that it's necessary to fix comments both in the code and in the list in general comment." -->
-        <!-- Could you be more specific about where the comments were not addressed in the code? -->
-        <!-- Please thoroughly check my previous edits for each point you made. -->
-        <!-- Looking forward to making informed and adequate corrections. -->
-        <!-- #Thanks -->
-
         <section class="profile page__section">
-          <!-- <img
-            src="./images/jacques-cousteau.jpg"
-            alt="Jacques Cousteau"
-            class="profile__picture"
-          /> -->
-
-          <img
-            src="<%=require('./images/jacques-cousteau.jpg')%>"
-            alt="Jacques Cousteau"
-            class="profile__picture"
-          />
-
-          <!-- I am unsure about the exact feedback provided here and its phrasing. -->
+          <div class="profile__picture-container">
+            <button class="profile__picture_edit-icon" type="button"></button>
+            <img
+              src="<%=require('./images/jacques-cousteau.jpg')%>"
+              alt="Jacques Cousteau"
+              class="profile__picture"
+            />
+          </div>
 
           <div class="profile__container">
-            <!-- Comments regarding specific changes or clarifications can be included -->
-            <!-- This section was adjusted based on previous feedback,
-                 ensuring the 'profile__subtitle_edit' class achieves the design requirement. -->
-            <!-- The 'profile__subtitle_edit' class was initially used to position the edit button correctly.
-                 However, I've updated the class name to 'profile__container_edit_btn' for clarity. 
-                 Removing this class changes the layout, so it is necessary for the design. -->
-
             <div class="profile__container-edit-btn">
               <h1 class="profile__name">Jacques Cousteau</h1>
               <button
@@ -143,16 +117,44 @@
     <!-- Picture Modal -->
     <div class="modal" id="picture-modal">
       <div class="modal__image-container">
-        <!-- I've made comments here.   -->
-        <!--  Unfortunately, I cannot follow the last feedback due to a lack of detailed information. -->
-        <!--  Please check here: -> https://snipboard.io/OdSrP8.jpg -->
-
         <button
           class="modal__close modal__close_preview"
           type="button"
         ></button>
         <img src="" alt="" class="modal__image" />
         <p class="modal__image-title"></p>
+      </div>
+    </div>
+
+    <!-- Delete Card Modal -->
+    <div class="modal" id="delete-modal">
+      <div class="delete__container">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading modal__heading_close">Are you sure?</h2>
+        <form class="modal__form modal__form_delete" id="modal__form">
+          <button class="modal__btn yes__delete-btn" type="submit">Yes</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Profile Avatar -->
+    <div class="modal" id="avatar-edit">
+      <div class="avatar__edit_container">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading">Change Profile Picutre</h2>
+        <form class="modal__form modal__form_avatar" id="modal__form">
+          <input
+            type="url"
+            class="modal__input modal__form_edit-avatar"
+            placeholder="Avatar URL"
+            name="avatar_link"
+            id="modal__form_avatar"
+            required
+          />
+          <span class="modal__error" id="modal__form_avatar-error"> </span>
+
+          <button class="modal__btn" type="submit">Save</button>
+        </form>
       </div>
     </div>
 

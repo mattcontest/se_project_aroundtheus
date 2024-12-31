@@ -5,10 +5,19 @@ export default class PopupWithForm extends Popup {
     super({ popupSelector });
     // console.log("PopupwithForm  - PopupElement:", this.popupElement);
     this.popupForm = this.popupElement.querySelector(".modal__form");
-    // console.log("PopupwithForm  - PopupElement:", this.popupElement);
-    // this.inputList = this.popupElement.querySelectorAll(".modal__input");
-    this.button = this.popupForm.querySelector(".modal__btn_type_add");
+    console.log("Logging this.popupForm form", this.popupForm);
+    // this.button = this.popupForm.querySelector(".modal__btn_type_add");
     this.hanldeFormSubmit = handleFormSubmit;
+    this.submitButton = this.popupForm.querySelector(".modal__btn");
+    this.submitButtonTextContent = this.submitButton.textContent;
+  }
+
+  renderLoading(isLoading, loadingText = "Saving...") {
+    if (isLoading) {
+      this.submitButton.textContent = loadingText;
+    } else {
+      this.submitButton.textContent = this.submitButtonTextContent;
+    }
   }
 
   _getInputValues() {
@@ -21,9 +30,31 @@ export default class PopupWithForm extends Popup {
     return formValues;
   }
 
+  setInputs(data) {
+    const inputList = this.popupForm.querySelectorAll(".modal__input");
+    inputList.forEach((input) => {
+      input.value = data[input.name];
+    });
+  }
+
+  setLoading(isLoading) {
+    if (isLoading) {
+      this.submitButton.textContent = "Saving...";
+      this.submitButton.disabled = true;
+    } else {
+      this.submitButton.textContent = this.submitButtonTextContent;
+      this.submitButton.disabled = false;
+    }
+  }
+
+  getForm() {
+    return this.popupForm;
+  }
+
   setEventListeners() {
     //With super we are calling the parent class setEventListeners when available
     // console.log("PopupWithForm.setEventListeners called");
+
     super.setEventListeners();
 
     this.popupForm.addEventListener("submit", (e) => {
@@ -31,9 +62,15 @@ export default class PopupWithForm extends Popup {
       e.preventDefault();
       //Passing to the handleFormSub,it the _getInputValues (which returns formValues)
       //Passing e to the handleFormSubmit
+      // console.log(
+      //   "Check the element you are about to submit",
+      //   this._getInputValues()
+      // );
       this.hanldeFormSubmit(this._getInputValues());
-      this.popupForm.reset();
-      this.close();
+
+      // this.popupForm.reset();
+      // this.close();
+
       // this.hanldeFormSubmit(e);
     });
     this._isAdded = true;

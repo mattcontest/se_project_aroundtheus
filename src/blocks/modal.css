@@ -50,6 +50,10 @@
   top: calc(54%);
 }
 
+#modal__form_avatar-error {
+  top: calc(49%);
+}
+
 #description__form-edit-error {
   top: calc(54%);
 }
@@ -63,6 +67,36 @@
   /* opacity: 1; */
 }
 
+.delete__container {
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  max-width: 430px;
+  min-height: 180px;
+}
+
+.avatar__edit_container {
+  background-color: #fff;
+  margin: auto;
+  padding: 0;
+  border-radius: 10px;
+  position: relative;
+  max-width: 430px;
+  min-height: 180px;
+}
+
+.modal__form_avatar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-bottom: 0;
+  width: 600px;
+  margin: solid red;
+}
+
 .modal__container {
   background-color: #fff;
   margin: auto;
@@ -71,6 +105,18 @@
   position: relative;
   max-width: 430px;
   min-height: 330px;
+}
+
+.modal__form_delete {
+  /* margin-bottom: 0 !important;
+  margin-right: 36px !important;
+  margin-bottom: 38px !important; */
+  display: flex;
+  flex-direction: column;
+  margin-left: 36px;
+  margin-right: 36px;
+  margin-bottom: 0;
+  width: 358px;
 }
 
 .modal__form {
@@ -120,6 +166,10 @@
   border: none;
   background-color: none;
   position: absolute;
+}
+
+.modal__heading_close {
+  margin-bottom: 36px;
 }
 
 .modal__close:hover {
